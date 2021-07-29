@@ -37,6 +37,12 @@ function Navigation({ isLoaded }){
           spotifyuser: spotifyuser
         })
       })
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        })
+      })
     }
   }, []);
 //run code based on a given condition
