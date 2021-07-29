@@ -1,3 +1,7 @@
+/* .home {
+  display: flex;
+} */
+
 .home__body {
   display: flex;
 }

@@ -8,7 +8,12 @@
   min-width: 230px;
   height: 100vh;
   background-color: #040404;
+  overflow-y: overlay;
   /* ensures sidebar takes up 20% of space available*/
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .sidebar__logo {

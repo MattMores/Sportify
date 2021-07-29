@@ -24,27 +24,32 @@ function Navigation({ isLoaded }){
     const _token = hash.access_token;
 
     if (_token) {
+      spotify.setAccessToken(_token);
       dispatch({
         type: "SET_TOKEN",
         token: _token,
-      })
-
-      spotify.setAccessToken(_token);
+      });
 
       spotify.getMe().then(spotifyuser => {
         dispatch( {
           type: 'SET_SPOTIFY_USER',
           spotifyuser: spotifyuser
-        })
-      })
+        });
+      });
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: "SET_PLAYLISTS",
           playlists: playlists,
-        })
-      })
+        });
+      });
+      spotify.getPlaylist('37i9dQZEVXcLaymYeKGb6o').then((response) =>
+         dispatch({
+           type: "SET_DISCOVER_WEEKLY",
+           discover_weekly: response,
+         })
+        );
     }
-  }, []);
+  }, [token, dispatch]);
 //run code based on a given condition
 console.log("-------", spotifyuser);
 console.log("******", token);
