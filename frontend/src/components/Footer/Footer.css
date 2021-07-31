@@ -1,6 +1,6 @@
+/* position fixed fixes to bottom of screen */
 .footer {
   position: fixed;
-  /* fixes to bottom of screen */
   display: flex;
   justify-content: space-between;
   bottom: 0;

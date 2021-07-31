@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SignupFormPage from './components/SignupFormPage';
+import SignupFormPage from './components/LogSignUpModal/LogSignUp';
 import Splash from './components/Splash/Splash';
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
@@ -9,6 +9,10 @@ import Navigation from './components/Navigation';
 import { Modal } from './context/Modal';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import BlockedRoute from './components/auth/BlockedRoute';
+import Home from './components/Home/Home';
+import SpotifyWebApi from "spotify-web-api-js";
+
+const spotify = new SpotifyWebApi();
 
 
 function App() {
@@ -21,12 +25,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation isLoaded={isLoaded} />
-        <Switch>
-          <Route path='/signup'>
-            <SignupFormPage />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path='/' exact={true}>
+          <Navigation isLoaded={isLoaded} />
+        </Route>
+        <ProtectedRoute path="/home">
+          <Home spotify={spotify} />
+        </ProtectedRoute>
+        <BlockedRoute path='/'/>
+      </Switch>
     </BrowserRouter>
   );
 }

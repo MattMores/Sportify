@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
+import LoginFormModal from '../LogSignUpModal';
 import Splash from '../Splash/Splash';
 import './Navigation.css';
 import { getTokenFromResponse } from '../Splash/spotify';
 import SpotifyWebApi from "spotify-web-api-js";
 import Home from '../Home/Home';
 import { useDataLayerValue } from '../../DataLayer/DataLayer';
+import SplashPage from '../SplashPage/SplashPage';
+import { Route, Redirect } from 'react-router-dom';
+
+{/* <ProfileButton user={sessionUser} /> */}
 
 const spotify = new SpotifyWebApi();
 
@@ -36,6 +40,19 @@ function Navigation({ isLoaded }){
           spotifyuser: spotifyuser
         });
       });
+
+    //   spotify.getMyTopArtists().then((response) =>
+    //   dispatch({
+    //     type: "SET_TOP_ARTISTS",
+    //     top_artists: response,
+    //   })
+    // );
+
+    // dispatch({
+    //   type: "SET_SPOTIFY",
+    //   spotify: spotify,
+    // });
+
       spotify.getUserPlaylists().then((playlists) => {
         dispatch({
           type: "SET_PLAYLISTS",
@@ -58,25 +75,24 @@ console.log("******", token);
   if (sessionUser) {
     sessionLinks = (
       <>
-      <NavLink exact to="/">Home</NavLink>
-      <ProfileButton user={sessionUser} />
+      { token ? (
+        <>
+        <Route>
+          <Redirect to="/home" spotify={spotify} />
+        </Route>
+        </>
+      ) : (
+      <>
+      <Splash exact={true} />
+      </>
+      )
+      }
       </>
     );
   } else {
     sessionLinks = (
       <>
-      { token ? (
-        <>
-        <Home spotify={spotify} />
-        </>
-      ) : (
-      <>
-      <Splash path="/" exact={true} />
-      <LoginFormModal />
-      <NavLink to="/signup">Sign Up</NavLink>
-      </>
-      )
-      }
+      <SplashPage path="/" exact={true} />
       </>
     );
   }

@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { useDataLayerValue } from '../../DataLayer/DataLayer';
+import SpotifyWebApi from "spotify-web-api-js";
+import { getTokenFromResponse } from '../Splash/spotify';
+
+const spotify = new SpotifyWebApi();
 
 function ProfileButton({ user }) {
-  const dispatch = useDispatch();
+  const _dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  
+  const [{spotifyuser, token}, dispatch] = useDataLayerValue();
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -19,13 +25,14 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
+    _dispatch(sessionActions.logout());
+    spotify.setAccessToken(null);
   };
 
   return (

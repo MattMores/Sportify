@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import './SignupForm.css';
+import "./Login.css"
+import therock from "./therock.svg"
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -30,49 +31,62 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1>Sign Up</h1>
+      <div className="header-3">The Rock Says...</div>
+      <div className="header-2">Sign Up</div>
+      <div className="content"></div>
+      <div className='image-2'>
+        <img className="img" src={therock} alt=""/>
+      </div>
+      <div className="form-2">
       <form onSubmit={handleSubmit}>
-        <ul>
+        <div className="error">
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-          Email
+        </div>
+        <div className="form-group">
+        <label className="label">Email</label>
           <input
+            className="input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Username
+          </div>
+        <div className="form-group">
+        <label className="label">Username</label>
           <input
+            className="input"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+          </div>
+        <div className="form-group">
+        <label className="label">Password</label>
           <input
+            className="input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Confirm Password
+          </div>
+        <div className="form-group">
+        <label className="label">Confirm Password</label>
           <input
+            className="input"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Sign Up</button>
+        </div>
+        <div className="footer-2">
+        <button className="auth-btn" type="submit">Sign Up</button>
+        </div>
       </form>
+      </div>
     </>
   );
 }
