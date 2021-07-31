@@ -6,9 +6,14 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from '../SongRow/SongRow';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllBets } from "../../store/bets";
 
 function Body( { spotify }) {
-    const [{ discover_weekly }, dispatch ] = useDataLayerValue();
+    const [{ discover_weekly }, _dispatch ] = useDataLayerValue();
+    const dispatch = useDispatch();
+    const allBets = useSelector(state => Object.values(state.bets));
 
     const playPlaylist = (id) => {
         spotify
@@ -17,11 +22,11 @@ function Body( { spotify }) {
           })
           .then((res) => {
             spotify.getMyCurrentPlayingTrack().then((r) => {
-              dispatch({
+              _dispatch({
                 type: "SET_ITEM",
                 item: r.item,
               });
-              dispatch({
+              _dispatch({
                 type: "SET_PLAYING",
                 playing: true,
               });
@@ -36,17 +41,21 @@ function Body( { spotify }) {
           })
           .then((res) => {
             spotify.getMyCurrentPlayingTrack().then((r) => {
-              dispatch({
+              _dispatch({
                 type: "SET_ITEM",
                 item: r.item,
               });
-              dispatch({
+              _dispatch({
                 type: "SET_PLAYING",
                 playing: true,
               });
             });
           });
       };
+
+      useEffect(() => {
+        dispatch(getAllBets());
+      }, [dispatch]);
 
     return (
         <div className="body">
@@ -59,7 +68,7 @@ function Body( { spotify }) {
                 />
                 <div className="body__infoText">
                     <strong>PLAYLIST</strong>
-                    <h2>Discover Weekly</h2>
+                    <h2>Discover Picks Weekly</h2>
                 {/* <p>description...</p> */}
                     <p>{discover_weekly?.description}</p>
                 </div>
@@ -73,8 +82,11 @@ function Body( { spotify }) {
                     <MoreHorizIcon />
                 </div>
                     {/* List of songs */}
-                    {discover_weekly?.tracks.items.map( (item) => (
+                    {/* {discover_weekly?.tracks.items.map( (item) => (
                         <SongRow playSong={playSong} track={item.track} />
+                        ))} */}
+                    {allBets.map( (bet) => (
+                        <SongRow bet={bet} />
                         ))}
                 </div>
         </div>
