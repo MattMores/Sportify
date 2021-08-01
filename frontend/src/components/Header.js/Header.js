@@ -25,7 +25,6 @@ function Header() {
                 <h4>{spotifyuser?.display_name}</h4>
                 <ProfileButton user={sessionUser} />
             </div>
-
         </div>
     )
 }

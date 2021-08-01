@@ -6,12 +6,19 @@ import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from '../SongRow/SongRow';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBets } from "../../store/bets";
+import { Grid } from "@material-ui/core";
 
 function Body( { spotify }) {
     const [{ discover_weekly }, _dispatch ] = useDataLayerValue();
+    const [betTeam, setBetTeam] = useState("");
+    const [opposingTeam, setOpposingTeam] = useState("");
+    const [betType, setBetType] = useState("");
+    const [line, setLine] = useState("");
+    const [amount, setAmount] = useState("");
+    const [reason, setReason] = useState("");
     const dispatch = useDispatch();
     const allBets = useSelector(state => Object.values(state.bets));
 
@@ -81,11 +88,46 @@ function Body( { spotify }) {
                     <FavoriteIcon fontSize="large"/>
                     <MoreHorizIcon />
                 </div>
+                  <div className="body__info">
+                    {/* <tr key={bet.id}></tr> */}
+                    <form action="">
+                      <Grid container spacing={2}>
+                      <Grid item>
+                        <input type = "text" className="input" placeholder="$$ Amount $$"/>
+                      </Grid>
+                      <Grid item>
+                        <input type = "text" className="input" placeholder="Team #1"/>
+                      </Grid>
+                      <Grid item>
+                        <input type = "text" className="input" placeholder="Line"/>
+                      </Grid>
+                      <Grid item>
+                        <select className="input">
+                          <option disabled>Bet Type</option>
+                          <option value="Straight">Straight</option>
+                          <option value="Spread">Spread</option>
+                          <option value="Over">Over</option>
+                          <option value="Under">Under</option>
+                          <option value="Parlay">Parlay</option>
+                        </select>
+                        </Grid>
+                        <Grid item>
+                        <input className="input" type="text" placeholder="Team #2"/>
+                        </Grid>
+                        <Grid item>
+                        <input className="input" type="text" placeholder="Reason"/>
+                        </Grid>
+                        <Grid item>
+                          <button className="auth-btn">Add Bet</button>
+                        </Grid>
+                      </Grid>
+                    </form>
+                </div>
                     {/* List of songs */}
                     {/* {discover_weekly?.tracks.items.map( (item) => (
                         <SongRow playSong={playSong} track={item.track} />
                         ))} */}
-                    {allBets.map( (bet) => (
+                    {allBets && allBets.map( (bet) => (
                         <SongRow bet={bet} />
                         ))}
                 </div>

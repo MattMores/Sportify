@@ -50,4 +50,10 @@ router.use("/users", usersRouter);
 
 // router.use("/api", apiRouter);
 
+//api/v1/restaurants - GET all restraurants
+//api/v1/restaurants/:id - GET one restaurant
+//api/v1/restaurants - POST/Create restaurant
+//api/v1/restaurants/:id PUT- Update Restaurant
+//api/v1/restaurants/:id - DELETE Restaurant 
+
 module.exports = router;

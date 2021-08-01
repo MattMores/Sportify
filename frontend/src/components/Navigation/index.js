@@ -78,7 +78,7 @@ console.log("******", token);
       { token ? (
         <>
         <Route>
-          <Redirect to="/home" spotify={spotify} />
+          <Redirect to="/bets" spotify={spotify} />
         </Route>
         </>
       ) : (

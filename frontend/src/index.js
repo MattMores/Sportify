@@ -13,6 +13,7 @@ import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from './store/session';
 import * as betsActions from "./store/bets"
+import { BetsContextProvider } from './BetsContext/BetsContext';
 
 const store = configureStore();
 
@@ -34,14 +35,16 @@ if (process.env.NODE_ENV !== "production") {
 function Root() {
   return (
    <DataLayer initialState={initialState} reducer={reducer}>
-      <ModalProvider>
-        <Provider store={store}>
-          <BrowserRouter>
-            <App />
-            {/* <Carrot /> */}
-          </BrowserRouter>
-        </Provider>
-      </ModalProvider>
+      <BetsContextProvider>
+        <ModalProvider>
+          <Provider store={store}>
+            <BrowserRouter>
+              <App />
+              {/* <Carrot /> */}
+            </BrowserRouter>
+          </Provider>
+        </ModalProvider>
+      </BetsContextProvider>
     </DataLayer>
   );
 }

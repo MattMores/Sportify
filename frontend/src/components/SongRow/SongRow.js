@@ -1,5 +1,6 @@
 import React from 'react'
 import './SongRow.css'
+import { Grid } from "@material-ui/core";
 
 // function SongRow( {track, playSong}) {
 //     return (
@@ -29,6 +30,14 @@ function SongRow( {bet}) {
                 <p>
                     Reason: {bet.reason}
                 </p>
+                {/* <Grid container spacing={2}>
+                <Grid item>
+                <button className="btn">Update Bet</button>
+                </Grid>
+                <Grid item>
+                <button className="btn">Delete Bet</button>
+                </Grid>
+                </Grid> */}
             </div>
 
         </div>
