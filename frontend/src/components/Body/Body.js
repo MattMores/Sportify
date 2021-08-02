@@ -8,19 +8,25 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import SongRow from '../SongRow/SongRow';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllBets } from "../../store/bets";
+import { getAllBets, betCreate, deleteBet } from "../../store/bets";
 import { Grid } from "@material-ui/core";
+import { useHistory } from 'react-router-dom';
+
 
 function Body( { spotify }) {
     const [{ discover_weekly }, _dispatch ] = useDataLayerValue();
+    const history = useHistory();
     const [betTeam, setBetTeam] = useState("");
     const [opposingTeam, setOpposingTeam] = useState("");
-    const [betType, setBetType] = useState("");
+    const [betType, setBetType] = useState("Bet Type");
     const [line, setLine] = useState("");
     const [amount, setAmount] = useState("");
     const [reason, setReason] = useState("");
     const dispatch = useDispatch();
     const allBets = useSelector(state => Object.values(state.bets));
+    const userId = useSelector(state => state.session.user?.id);
+
+    console.log("000000000", allBets)
 
     const playPlaylist = (id) => {
         spotify
@@ -64,6 +70,17 @@ function Body( { spotify }) {
         dispatch(getAllBets());
       }, [dispatch]);
 
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
+        let createdBet = dispatch(betCreate(newBet))
+        dispatch(getAllBets())
+        if (createdBet) {
+          setBetTeam("")
+          history.push('/bets')
+        }
+      }
+
     return (
         <div className="body">
             <Header spotify={spotify}/>
@@ -75,7 +92,7 @@ function Body( { spotify }) {
                 />
                 <div className="body__infoText">
                     <strong>PLAYLIST</strong>
-                    <h2>Discover Picks Weekly</h2>
+                    <h2>Discover Bets Weekly</h2>
                 {/* <p>description...</p> */}
                     <p>{discover_weekly?.description}</p>
                 </div>
@@ -93,16 +110,22 @@ function Body( { spotify }) {
                     <form action="">
                       <Grid container spacing={2}>
                       <Grid item>
-                        <input type = "text" className="input" placeholder="$$ Amount $$"/>
+                        <input value={betTeam} onChange={e => setBetTeam(e.target.value)} type = "text" className="input" placeholder="Team #1"/>
                       </Grid>
                       <Grid item>
-                        <input type = "text" className="input" placeholder="Team #1"/>
+                        <input value={amount} onChange={e => setAmount(e.target.value)} type = "text" className="input" placeholder="$$ Amount $$"/>
                       </Grid>
                       <Grid item>
-                        <input type = "text" className="input" placeholder="Line"/>
+                        <input value={line} onChange={e => setLine(e.target.value)} type = "text" className="input" placeholder="Line"/>
                       </Grid>
-                      <Grid item>
-                        <select className="input">
+                        <Grid item>
+                        <input value={opposingTeam} onChange={e => setOpposingTeam(e.target.value)} className="input" type="text" placeholder="Team #2"/>
+                        </Grid>
+                        <Grid item>
+                        <input value={reason} onChange={e => setReason(e.target.value)} className="input" type="text" placeholder="Reason"/>
+                        </Grid>
+                        <Grid item>
+                        <select value={betType} onChange={e => setBetType (e.target.value)} className="input">
                           <option disabled>Bet Type</option>
                           <option value="Straight">Straight</option>
                           <option value="Spread">Spread</option>
@@ -112,13 +135,7 @@ function Body( { spotify }) {
                         </select>
                         </Grid>
                         <Grid item>
-                        <input className="input" type="text" placeholder="Team #2"/>
-                        </Grid>
-                        <Grid item>
-                        <input className="input" type="text" placeholder="Reason"/>
-                        </Grid>
-                        <Grid item>
-                          <button className="auth-btn">Add Bet</button>
+                          <button onClick={handleSubmit} type="submit" className="auth-btn">Add Bet</button>
                         </Grid>
                       </Grid>
                     </form>
@@ -128,7 +145,7 @@ function Body( { spotify }) {
                         <SongRow playSong={playSong} track={item.track} />
                         ))} */}
                     {allBets && allBets.map( (bet) => (
-                        <SongRow bet={bet} />
+                        <SongRow key={bet.id} bet={bet} />
                         ))}
                 </div>
         </div>

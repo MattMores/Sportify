@@ -8,7 +8,7 @@ const { Bet, Review, User } = require('../../db/models');
 // get all bets
 router.get('/', asyncHandler(async (req, res) => {
     const bets = await Bet.findAll( {include: [Review, User]});
-    // console.log("wwwwwwwwwwww", bets);
+    console.log("wwwwwwwwwwww", bets);
     res.json(bets)
     // bets.length
     //bets.rows
@@ -30,6 +30,7 @@ router.post('/', asyncHandler(async (req, res) => {
     const betInfo = req.body;
     console.log("----------------------------", betInfo)
     const bet = await Bet.create(betInfo)
+    console.log("6666666", res.json(bet))
       // console.log("--------------------", userId, title, content); //notebookId
     //   const bet = await Bet.create({
     //     userId,
@@ -61,7 +62,7 @@ router.put('/', asyncHandler(async (req, res) => {
     }));
 
 router.delete('/', restoreUser, asyncHandler(async (req, res) => {
-    const { id } = req.body.id;
+    const { id } = req.body;
     console.log("----------------------", id)
     const bet = await Bet.findByPk(id);
     await bet.destroy();
