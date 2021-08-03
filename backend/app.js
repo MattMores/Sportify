@@ -28,6 +28,8 @@ app.use(helmet({
 }));
 
 // Set the _csrf token and create req.csrfToken method
+
+// Comment out 
 app.use(
   csurf({
     cookie: {

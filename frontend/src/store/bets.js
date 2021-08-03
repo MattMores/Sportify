@@ -4,6 +4,7 @@ import { csrfFetch } from "./csrf";
 const SET_BETS = "bets/GET_ALL_BETS";
 const ADD_BET = "bets/ADD_BET"
 const DELETE_BET = "bets/DELETE_BET"
+const UPDATE_BET = "bets/UPDATE_BET"
 
 // Define Action Creators
 const setBets = (bets) => ({
@@ -20,6 +21,11 @@ const del = (betId) => ({
     type: DELETE_BET,
     betId,
 });
+
+const updateBet = (bet) => ({
+    type: UPDATE_BET,
+    bet
+})
 
 // Define Thunks
 export const getAllBets = () => async (dispatch) => {
@@ -57,6 +63,19 @@ export const deleteBet = (id) => async (dispatch) => {
     dispatch(del(id));
   };
 
+export const betUpdate = (bet) => async (dispatch) => {
+    const res = await csrfFetch('/api/bets', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(bet),
+});
+if (res.ok) {
+    const updatedBet = await res.json();
+    console.log("upppppppppp", updatedBet)
+    dispatch(updateBet(updatedBet))
+}
+};
+
 // Define an initial state
 const initialState = {};
 
@@ -80,6 +99,10 @@ const betsReducer = (state = initialState, action) => {
                 [action.bet.id]: action.bet,
               };
             }
+        case UPDATE_BET:
+            const { bet } = action
+            newState = {...state, [bet.id] : bet}
+            return newState;
         case DELETE_BET:
             console.log("ppppppp", action)
             newState = {...state}

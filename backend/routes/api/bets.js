@@ -46,20 +46,28 @@ router.post('/', asyncHandler(async (req, res) => {
 
 // Update Bet
 
+// router.put('/', asyncHandler(async (req, res) => {
+//     // console.log("----------------------------", req.body)
+//     let { id, userId, betTeam, opposingTeam, betType, line, amount, reason } = req.body; //notebookId
+//       // console.log("--------------------", id, title, content, notebookId, userId); //notebookId
+//       userId = Number(userId)
+//       const bet = await Bet.findByPk(id) //notebookId
+//       // console.log("------------------", note)
+//       // if (title === note.dataValues.title && content !== note.dataValues.content) { // unreadable object before you res.json
+//       //   return note
+//       // } else {
+//           await bet.update({...bet.dataValues, betTeam, opposingTeam, betType, line, amount, reason})
+//           res.json(bet)
+//       // };
+//     }));
+
 router.put('/', asyncHandler(async (req, res) => {
-    // console.log("----------------------------", req.body)
-    let { id, userId, betTeam, opposingTeam, betType, line, amount, reason } = req.body; //notebookId
-      // console.log("--------------------", id, title, content, notebookId, userId); //notebookId
-      userId = Number(userId)
-      const bet = await Bet.findByPk(id) //notebookId
-      // console.log("------------------", note)
-      // if (title === note.dataValues.title && content !== note.dataValues.content) { // unreadable object before you res.json
-      //   return note
-      // } else {
-          await bet.update({...bet.dataValues, betTeam, opposingTeam, betType, line, amount, reason})
-          res.json(bet)
-      // };
-    }));
+    const { id, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
+    console.log("updatttttteeeeeddddstore", req.body)
+    const bet = await Bet.findByPk(id);
+    await bet.update({betTeam, opposingTeam, betType, line, amount, reason })
+    res.json(bet)
+}))
 
 router.delete('/', restoreUser, asyncHandler(async (req, res) => {
     const { id } = req.body;

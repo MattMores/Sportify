@@ -20,7 +20,7 @@ function Sidebar() {
         {/* hr = horizantal row line break */}
         <hr />
         {playlists?.items?.map(playlist => (
-        <SidebarOption title={playlist.name} />
+        <SidebarOption key={playlist.id} title={playlist.name} />
         ))}
         <SidebarOption title={"Rock"} />
         <SidebarOption title={"R&B"} />

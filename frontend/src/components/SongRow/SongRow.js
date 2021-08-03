@@ -1,9 +1,11 @@
 import React from 'react'
 import './SongRow.css'
 import { Grid } from "@material-ui/core";
-import { getAllBets,deleteBet } from "../../store/bets";
+import { deleteBet } from "../../store/bets";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import UpdatePageModal from '../UpdatePage/UpdatePage';
 
 
 // function SongRow( {track, playSong}) {
@@ -26,10 +28,21 @@ function SongRow( {bet} ) {
 
     const { id } = useSelector(state => state.session.user);
     const dispatch = useDispatch()
+    const history = useHistory();
+
+    // const handleUpdate = (id) => {
+    //     history.push(`/bets/${id}/update`)
+    // }
+
     const handleDelete = (id) => {
+        // e.stopPropagation()
         dispatch(deleteBet(id))
     }
 
+    const handleBetSelect = (id) => {
+        history.push(`/bets/${id}`)
+    }
+    // onClick={() => handleBetSelect(bet.id)}
     return (
         <div className="songRow">
             <img className="songRow__album" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNPTaZg8bHVoBAhrIgdvUgAm8RCArXFLPSQ&usqp=CAU" alt=""/>
@@ -43,10 +56,14 @@ function SongRow( {bet} ) {
                 </p>
                 <Grid container spacing={2}>
                 <Grid item>
-                {bet.userId === id ? <button className="btn">Update Bet</button> : null}
+                {/* {bet.userId === id ? <button onClick={() => handleUpdate(bet.id)} className="btn">Update Bet</button> : null} */}
+                {bet.userId === id ? <UpdatePageModal bet= {bet} /> : null}
                 </Grid>
                 <Grid item>
                 {bet.userId === id ? <button onClick={() => handleDelete(bet.id)} className="btn">Delete Bet</button> : null}
+                </Grid>
+                <Grid item>
+                {bet.userId === id ? <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button> : null}
                 </Grid>
                 </Grid>
             </div>
