@@ -22,8 +22,9 @@ const useStyles = makeStyles((theme) => ({
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support.`;
 
-export default function Reviews() {
+export default function Reviews( {review}) {
   const classes = useStyles();
+  console.log("9999999", review)
 
   return (
     <div className={classes.root}>
@@ -34,8 +35,8 @@ export default function Reviews() {
           </Grid>
           <Grid item xs>
             <StarRating />
-            <div className="review_name">Name</div>
-            <Typography>{message}</Typography>
+            <div className="review_name">{review.name}</div>
+            <Typography>{review.answer}</Typography>
           </Grid>
         </Grid>
       </Paper>

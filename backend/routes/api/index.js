@@ -2,6 +2,7 @@ const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 const betsRouter = require('./bets.js');
+const reviewsRouter = require('./reviews.js');
 // const apiRouter = require('/api', apiRouter);
 
 // GET /api/set-token-cookie
@@ -40,6 +41,8 @@ const betsRouter = require('./bets.js');
 
 router.use("/bets", betsRouter);
 
+router.use("/reviews", reviewsRouter);
+
 router.post("/test", function (req, res) {
   res.json({ requestBody: req.body });
 });
@@ -54,6 +57,6 @@ router.use("/users", usersRouter);
 //api/v1/restaurants/:id - GET one restaurant
 //api/v1/restaurants - POST/Create restaurant
 //api/v1/restaurants/:id PUT- Update Restaurant
-//api/v1/restaurants/:id - DELETE Restaurant 
+//api/v1/restaurants/:id - DELETE Restaurant
 
 module.exports = router;

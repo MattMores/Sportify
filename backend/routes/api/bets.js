@@ -44,6 +44,25 @@ router.post('/', asyncHandler(async (req, res) => {
       res.json(bet);
     }));
 
+// router.post('/:id(\\d+)', asyncHandler(async (req, res) => {
+//     let { userId, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
+//     const reviewInfo = req.body;
+//     console.log("rrrrrrrrrrrrrrr", reviewInfo)
+//     const review = await Review.create(ReviewInfo)
+//     console.log("555555555555", res.json(review))
+        // console.log("--------------------", userId, title, content); //notebookId
+    //   const bet = await Bet.create({
+    //     userId,
+    //     betTeam,
+    //     opposingTeam,
+    //     betType,
+    //     line,
+    //     amount,
+    //     reason
+    //   });
+    //     res.json(review);
+    // }));
+
 // Update Bet
 
 // router.put('/', asyncHandler(async (req, res) => {

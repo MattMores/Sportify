@@ -56,14 +56,15 @@ function SongRow( {bet} ) {
                 </p>
                 <Grid container spacing={2}>
                 <Grid item>
+                {/* {bet.userId === id ? <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button> : null} */}
+                <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button>
+                </Grid>
+                <Grid item>
                 {/* {bet.userId === id ? <button onClick={() => handleUpdate(bet.id)} className="btn">Update Bet</button> : null} */}
                 {bet.userId === id ? <UpdatePageModal bet= {bet} /> : null}
                 </Grid>
                 <Grid item>
                 {bet.userId === id ? <button onClick={() => handleDelete(bet.id)} className="btn">Delete Bet</button> : null}
-                </Grid>
-                <Grid item>
-                {bet.userId === id ? <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button> : null}
                 </Grid>
                 </Grid>
             </div>
