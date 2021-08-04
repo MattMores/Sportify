@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import UpdateReviewsModal from '../UpdateReviewsModal/UpdateReviewsModal';
 import { useEffect } from 'react';
 import { getAllBets } from "../../store/bets";
+import { deleteReview } from '../../store/reviews';
+import { useParams, useHistory, useLocation } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,14 +26,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Reviews( {review}) {
+    const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useSelector(state => state.session.user);
     const classes = useStyles();
-    console.log("9999999", review);
+    // const currentBet = useSelector(state => state.bets[review.betId])
 
-    const handleDelete = (id) => {
+    const handleDelete = async (id) => {
         // e.stopPropagation()
-        // dispatch(deleteBet(id))
+        let deletedBet = await dispatch(deleteReview(id))
+        dispatch(getAllBets())
+        if(deletedBet){
+            history.push("/")
+            history.push(`/bets/${id}`)
     }
+}
+
+    useEffect(() => {
+    }, [dispatch]);
 
   return (
     <div className={classes.root}>

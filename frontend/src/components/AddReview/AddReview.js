@@ -59,7 +59,7 @@ const handleSubmitReview = async (e) => {
     const newReview = {userId, betId, name, rating, answer}
     console.log("newReview", newReview)
     let createdReview = await dispatch(reviewCreate(newReview))
-    dispatch(getAllBets())
+    // dispatch(getAllBets())
     if (createdReview) {
     //   setBetTeam("")
         history.push('/')

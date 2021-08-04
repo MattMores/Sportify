@@ -50,7 +50,8 @@ router.delete('/', restoreUser, asyncHandler(async (req, res) => {
     const { id } = req.body;
     console.log("----------------------", id)
     const review = await Review.findByPk(id);
-    await Review.destroy();
+    console.log("rrrrrrrrrrrrrrrrr", review)
+    await review.destroy();
     res.json(review);
     })
 );

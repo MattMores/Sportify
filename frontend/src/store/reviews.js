@@ -59,7 +59,6 @@ export const deleteReview = (id) => async (dispatch) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id }),
     });
-
     dispatch(del(id));
   };
 
@@ -105,6 +104,7 @@ const reviewsReducer = (state = initialState, action) => {
             return newState;
         case DELETE_REVIEW:
             newState = {...state}
+            console.log("0000000000000", action)
             delete newState[action.reviewId]
             return newState
         default:
