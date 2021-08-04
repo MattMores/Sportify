@@ -46,14 +46,14 @@ router.put('/', asyncHandler(async (req, res) => {
     res.json(review)
 }))
 
-// router.delete('/', restoreUser, asyncHandler(async (req, res) => {
-//     const { id } = req.body;
-//     console.log("----------------------", id)
-//     const bet = await Bet.findByPk(id);
-//     await bet.destroy();
-//     res.json(bet);
-//     })
-// );
+router.delete('/', restoreUser, asyncHandler(async (req, res) => {
+    const { id } = req.body;
+    console.log("----------------------", id)
+    const review = await Review.findByPk(id);
+    await Review.destroy();
+    res.json(review);
+    })
+);
 
 // router.delete('/:betId', restoreUser, asyncHandler(async (req, res) => {
 //     const betId = req.params.betId;

@@ -28,6 +28,11 @@ export default function Reviews( {review}) {
     const classes = useStyles();
     console.log("9999999", review);
 
+    const handleDelete = (id) => {
+        // e.stopPropagation()
+        // dispatch(deleteBet(id))
+    }
+
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -42,7 +47,11 @@ export default function Reviews( {review}) {
           </Grid>
           <Grid item>
               {review?.userId === id ? <UpdateReviewsModal review={review} /> : null}
+              {review?.userId === id ? <button onClick={() => handleDelete(review?.id)} className="btn">Delete</button> : null}
               </Grid>
+              {/* <Grid item>
+              {review?.userId === id ? <button onClick={() => handleDelete(review?.id)} className="btn">Delete Bet</button> : null}
+              </Grid> */}
         </Grid>
       </Paper>
     </div>

@@ -97,6 +97,15 @@ router.delete('/', restoreUser, asyncHandler(async (req, res) => {
     })
 );
 
+// router.delete('/', restoreUser, asyncHandler(async (req, res) => {
+//     const { id } = req.body;
+//     console.log("----------------------", id)
+//     const bet = await Bet.findByPk(id);
+//     await bet.destroy();
+//     res.json(bet);
+//     })
+// );
+
 // router.delete('/:betId', restoreUser, asyncHandler(async (req, res) => {
 //     const betId = req.params.betId;
 //     const deletedBet = await Bet.destroy( {where: {betId} });

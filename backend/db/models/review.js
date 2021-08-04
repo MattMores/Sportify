@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Review.associate = function(models) {
     Review.belongsTo(models.User, { foreignKey: 'userId'});
-    Review.belongsTo(models.Bet, { foreignKey: 'betId'});
+    Review.belongsTo(models.Bet, { foreignKey: 'betId'}, {onDelete: "CASCADE", hooks: true});
   };
   return Review;
 };

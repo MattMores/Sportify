@@ -3,7 +3,7 @@ import "./UpdateReviewsModal.css"
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBets, betCreate, betUpdate } from "../../store/bets";
-import { reviewUpdate } from '../../store/reviews';
+import { reviewUpdate, deleteReview } from '../../store/reviews';
 import { Grid } from "@material-ui/core";
 import { useParams, useHistory } from 'react-router-dom';
 

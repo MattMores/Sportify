@@ -81,6 +81,8 @@ function Body( { spotify }) {
         }
       }
 
+      //array.sort date.parse b - date.parse a (a and b are 1st and second argument passed into .sort)
+
     return (
         <div className="body">
             <Header spotify={spotify}/>
@@ -144,6 +146,7 @@ function Body( { spotify }) {
                     {/* {discover_weekly?.tracks.items.map( (item) => (
                         <SongRow playSong={playSong} track={item.track} />
                         ))} */}
+                        {/* array.sort.map here */}
                     {allBets && allBets.map( (bet) => (
                         <SongRow key={bet.id} bet={bet} />
                         ))}

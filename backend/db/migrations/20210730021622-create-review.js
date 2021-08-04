@@ -16,6 +16,8 @@ module.exports = {
       betId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        onDelete: "CASCADE",
+        hooks: true,
         references: { model: "Bets"}
       },
       name: {

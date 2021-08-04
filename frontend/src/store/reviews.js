@@ -3,7 +3,7 @@ import { csrfFetch } from "./csrf";
 // Define Action TYpes as Constants
 // const SET_BETS = "bets/GET_ALL_BETS";
 const ADD_REVIEW = "reviews/ADD_REVIEW"
-// const DELETE_BET = "bets/DELETE_BET"
+const DELETE_REVIEW = "reviews/DELETE_REVIEW"
 const UPDATE_REVIEW = "reviews/UPDATE_BET"
 
 // Define Action Creators
@@ -17,10 +17,10 @@ const addReview = (review) => ({
     review,
   });
 
-// const del = (betId) => ({
-//     type: DELETE_BET,
-//     betId,
-// });
+const del = (reviewId) => ({
+    type: DELETE_REVIEW,
+    reviewId,
+});
 
 const updateReview = (review) => ({
     type: UPDATE_REVIEW,
@@ -53,15 +53,15 @@ export const reviewCreate = (review) => async (dispatch) => {
     // return response;
 };
 
-// export const deleteBet = (id) => async (dispatch) => {
-//     await csrfFetch('/api/bets', {
-//       method: 'DELETE',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ id }),
-//     });
+export const deleteReview = (id) => async (dispatch) => {
+    await csrfFetch('/api/reviews', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    });
 
-//     dispatch(del(id));
-//   };
+    dispatch(del(id));
+  };
 
 export const reviewUpdate = (review) => async (dispatch) => {
     const res = await csrfFetch('/api/reviews', {
@@ -103,11 +103,10 @@ const reviewsReducer = (state = initialState, action) => {
             const { review } = action
             newState = {...state, [review.id] : review}
             return newState;
-        // case DELETE_BET:
-        //     console.log("ppppppp", action)
-        //     newState = {...state}
-        //     delete newState[action.betId]
-        //     return newState
+        case DELETE_REVIEW:
+            newState = {...state}
+            delete newState[action.reviewId]
+            return newState
         default:
             return state;
     }
