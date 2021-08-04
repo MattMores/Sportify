@@ -20,11 +20,14 @@ function UpdateReview({setShowModal , review}) {
     // const allBets = useSelector(state => Object.values(state.bets));
     // const userId = useSelector(state => state.session.user?.id);
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+    }, [dispatch]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const updateOneReview = {userId:review.userId, betId:review.betId, name, rating, answer, id:review.id }
-        dispatch(reviewUpdate(updateOneReview))
-        // dispatch(getAllBets())
+        let updatedReview = await dispatch(reviewUpdate(updateOneReview))
+        dispatch(getAllBets())
         setShowModal(false)
         // history.push('/')
         // history.push(`/bets/${id}`)

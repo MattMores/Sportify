@@ -36,7 +36,7 @@ function BetDetailPage() {
                     {bet.count ? `(${bet.count})` : "(0)"}
                 </span> */}
        <div>
-           {currentBet.Reviews && currentBet?.Reviews.map( (review) => (
+           {currentBet?.Reviews && currentBet?.Reviews.map( (review) => (
                <Reviews key={review.id} review={review}/>
            ))}
             {/* {currentBet.betTeam.Reviews.answer} */}
@@ -53,7 +53,7 @@ function BetDetailPage() {
             </Grid>
         </Grid>
         <div>
-        <AddReview betId={currentBet.id} />
+        <AddReview betId={currentBet?.id} />
         </div>
         </>
     )

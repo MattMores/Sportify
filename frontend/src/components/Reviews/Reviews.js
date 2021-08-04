@@ -5,8 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import StarRating from '../StarRating/StarRating';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UpdateReviewsModal from '../UpdateReviewsModal/UpdateReviewsModal';
+import { useEffect } from 'react';
+import { getAllBets } from "../../store/bets";
 
 const useStyles = makeStyles((theme) => ({
   root: {
