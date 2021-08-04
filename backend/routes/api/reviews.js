@@ -35,25 +35,25 @@ router.post('/', asyncHandler(async (req, res) => {
       res.json(review);
     }));
 
-// Update Bet
+// Update review
 
 
 router.put('/', asyncHandler(async (req, res) => {
-    const { id, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
-    console.log("updatttttteeeeeddddstore", req.body)
-    const bet = await Bet.findByPk(id);
-    await bet.update({betTeam, opposingTeam, betType, line, amount, reason })
-    res.json(bet)
+    const { id, betId, name, rating, answer } = req.body;
+    console.log("revvviewwwwwwwstoreupdate", req.body)
+    const review = await Review.findByPk(id);
+    await review.update( {name, rating, answer })
+    res.json(review)
 }))
 
-router.delete('/', restoreUser, asyncHandler(async (req, res) => {
-    const { id } = req.body;
-    console.log("----------------------", id)
-    const bet = await Bet.findByPk(id);
-    await bet.destroy();
-    res.json(bet);
-    })
-);
+// router.delete('/', restoreUser, asyncHandler(async (req, res) => {
+//     const { id } = req.body;
+//     console.log("----------------------", id)
+//     const bet = await Bet.findByPk(id);
+//     await bet.destroy();
+//     res.json(bet);
+//     })
+// );
 
 // router.delete('/:betId', restoreUser, asyncHandler(async (req, res) => {
 //     const betId = req.params.betId;

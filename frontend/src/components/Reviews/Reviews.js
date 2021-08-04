@@ -5,6 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import StarRating from '../StarRating/StarRating';
+import { useSelector } from 'react-redux';
+import UpdateReviewsModal from '../UpdateReviewsModal/UpdateReviewsModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,12 +21,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const message = `Truncation should be conditionally applicable on this long line of text
- as this is a much longer line than what the container can support.`;
-
 export default function Reviews( {review}) {
-  const classes = useStyles();
-  console.log("9999999", review)
+    const { id } = useSelector(state => state.session.user);
+    const classes = useStyles();
+    console.log("9999999", review);
 
   return (
     <div className={classes.root}>
@@ -38,6 +38,9 @@ export default function Reviews( {review}) {
             <div className="review_name">{review.name}</div>
             <Typography>{review.answer}</Typography>
           </Grid>
+          <Grid item>
+              {review?.userId === id ? <UpdateReviewsModal review={review} /> : null}
+              </Grid>
         </Grid>
       </Paper>
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllBets } from "../../store/bets";
+import { betCreate, getAllBets } from "../../store/bets";
 import StarRating from '../StarRating/StarRating';
 import Reviews from '../Reviews/Reviews';
 import { Grid } from '@material-ui/core';
@@ -31,8 +31,12 @@ function BetDetailPage() {
                     Reason: {currentBet?.reason}
                 </p>
                 <div> <StarRating newValue={4}/> </div>
+                {/* <StarRating rating={betCreate.average_rating} />
+                <span>
+                    {bet.count ? `(${bet.count})` : "(0)"}
+                </span> */}
        <div>
-           {currentBet && currentBet?.Reviews.map( (review) => (
+           {currentBet.Reviews && currentBet?.Reviews.map( (review) => (
                <Reviews key={review.id} review={review}/>
            ))}
             {/* {currentBet.betTeam.Reviews.answer} */}

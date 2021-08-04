@@ -107,7 +107,7 @@ const betsReducer = (state = initialState, action) => {
             console.log("ppppppp", action)
             newState = {...state}
             delete newState[action.betId]
-            return newState
+            return newState;
         default:
             return state;
     }

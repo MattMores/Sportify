@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import UpdatePageModal from '../UpdatePage/UpdatePage';
+import StarRating from '../StarRating/StarRating';
 
 
 // function SongRow( {track, playSong}) {
@@ -30,10 +31,20 @@ function SongRow( {bet} ) {
     const dispatch = useDispatch()
     const history = useHistory();
 
+    // const renderRating = (bet) => {
+    //     if (!bet.count) {
+    //         return <span>0 Reviews</span>
+    //     }
+    //     return (
+    //         <>
+    //         <StarRating rating={bet.id} />
+    //         <span>({bet.count})</span>
+    //         </>
+    //     )
+    // }
     // const handleUpdate = (id) => {
     //     history.push(`/bets/${id}/update`)
     // }
-
     const handleDelete = (id) => {
         // e.stopPropagation()
         dispatch(deleteBet(id))
@@ -42,6 +53,9 @@ function SongRow( {bet} ) {
     const handleBetSelect = (id) => {
         history.push(`/bets/${id}`)
     }
+
+    // useEffect(() => {
+    // }, [dispatch]);
     // onClick={() => handleBetSelect(bet.id)}
     return (
         <div className="songRow">
@@ -49,10 +63,10 @@ function SongRow( {bet} ) {
             <div className="songRow__info">
                 <h1>{bet?.User?.username}</h1>
                 <p>
-                    ${bet.amount}: {bet.betTeam} +{bet.line} ({bet.betType}) vs. {bet.opposingTeam}
+                    ${bet?.amount}: {bet?.betTeam} +{bet?.line} ({bet?.betType}) vs. {bet?.opposingTeam}
                 </p>
                 <p>
-                    Reason: {bet.reason}
+                    Reason: {bet?.reason}
                 </p>
                 <Grid container spacing={2}>
                 <Grid item>
@@ -61,10 +75,10 @@ function SongRow( {bet} ) {
                 </Grid>
                 <Grid item>
                 {/* {bet.userId === id ? <button onClick={() => handleUpdate(bet.id)} className="btn">Update Bet</button> : null} */}
-                {bet.userId === id ? <UpdatePageModal bet= {bet} /> : null}
+                {bet?.userId === id ? <UpdatePageModal bet= {bet} /> : null}
                 </Grid>
                 <Grid item>
-                {bet.userId === id ? <button onClick={() => handleDelete(bet.id)} className="btn">Delete Bet</button> : null}
+                {bet?.userId === id ? <button onClick={() => handleDelete(bet?.id)} className="btn">Delete Bet</button> : null}
                 </Grid>
                 </Grid>
             </div>

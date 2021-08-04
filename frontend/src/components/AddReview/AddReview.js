@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { reviewCreate } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBets, betCreate, deleteBet } from "../../store/bets";
-
+import { useParams, useHistory, useLocation } from 'react-router';
 
 const betTypes = [
     {
@@ -36,31 +36,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddReview( {betId}) {
+  const { id } = useParams();
+  console.log("matthew", id)
   const classes = useStyles();
 //   const [currency, setCurrency] = React.useState('EUR');
   const [name, setName] = useState("");
   const [rating, setRating] = useState("");
-  const [answer, setAnswer] = useState("Review");
+  const [answer, setAnswer] = useState("");
   const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
+  const history = useHistory();
 
 //   const handleChange = (event) => {
 //     setCurrency(event.target.value);
 //   };
 
-const handleSubmit = (e) => {
+useEffect(() => {
+}, [dispatch]);
+
+const handleSubmitReview = async (e) => {
     e.preventDefault();
     const newReview = {userId, betId, name, rating, answer}
-    dispatch(reviewCreate(newReview))
+    console.log("newReview", newReview)
+    let createdReview = await dispatch(reviewCreate(newReview))
     dispatch(getAllBets())
-    // if (createdBet) {
+    if (createdReview) {
     //   setBetTeam("")
-    //   history.push('/bets')
-    // }
+        history.push('/')
+        history.push(`/bets/${id}`)
+    }
   }
 
-  useEffect(() => {
-  }, [dispatch]);
+//   history.push("/")
+//   history.push(location.pathname) - useLocation
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -106,7 +114,7 @@ const handleSubmit = (e) => {
         //   defaultValue="Comment"
           variant="outlined"
         />
-    <button onClick={handleSubmit} type="submit" className="auth-btn">Add Comment</button>
+    <button onClick={handleSubmitReview} type="submit" className="auth-btn">Add Comment</button>
     </form>
   );
 }

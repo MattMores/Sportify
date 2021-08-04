@@ -4,7 +4,7 @@ import { csrfFetch } from "./csrf";
 // const SET_BETS = "bets/GET_ALL_BETS";
 const ADD_REVIEW = "reviews/ADD_REVIEW"
 // const DELETE_BET = "bets/DELETE_BET"
-// const UPDATE_BET = "bets/UPDATE_BET"
+const UPDATE_REVIEW = "reviews/UPDATE_BET"
 
 // Define Action Creators
 // const setBets = (bets) => ({
@@ -22,10 +22,10 @@ const addReview = (review) => ({
 //     betId,
 // });
 
-// const updateBet = (bet) => ({
-//     type: UPDATE_BET,
-//     bet
-// })
+const updateReview = (review) => ({
+    type: UPDATE_REVIEW,
+    review,
+})
 
 // Define Thunks
 // export const getAllBets = () => async (dispatch) => {
@@ -63,18 +63,18 @@ export const reviewCreate = (review) => async (dispatch) => {
 //     dispatch(del(id));
 //   };
 
-// export const betUpdate = (bet) => async (dispatch) => {
-//     const res = await csrfFetch('/api/bets', {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify(bet),
-// });
-// if (res.ok) {
-//     const updatedBet = await res.json();
-//     console.log("upppppppppp", updatedBet)
-//     dispatch(updateBet(updatedBet))
-// }
-// };
+export const reviewUpdate = (review) => async (dispatch) => {
+    const res = await csrfFetch('/api/reviews', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(review),
+});
+if (res.ok) {
+    const updatedReview = await res.json();
+    console.log("uppppppppppdated Review", updatedReview)
+    dispatch(updateReview(updatedReview))
+}
+};
 
 // Define an initial state
 const initialState = {};
@@ -99,10 +99,10 @@ const reviewsReducer = (state = initialState, action) => {
                 [action.review.id]: action.review,
               };
             }
-        // case UPDATE_BET:
-        //     const { bet } = action
-        //     newState = {...state, [bet.id] : bet}
-        //     return newState;
+        case UPDATE_REVIEW:
+            const { review } = action
+            newState = {...state, [review.id] : review}
+            return newState;
         // case DELETE_BET:
         //     console.log("ppppppp", action)
         //     newState = {...state}
