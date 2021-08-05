@@ -19,9 +19,10 @@
 .sidebar__logo {
   /* object-fit: contain; */
   margin-right: auto;
-  height: 70px;
+  height: 63px;
   /* width: 100px; */
   padding: 10px;
+  margin: 1px;
 }
 
 .sidebar__title {

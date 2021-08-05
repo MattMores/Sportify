@@ -7,6 +7,7 @@ import StarRating from '../StarRating/StarRating';
 import Reviews from '../Reviews/Reviews';
 import { Grid } from '@material-ui/core';
 import AddReview from '../AddReview/AddReview';
+import "./BetDetailPage.css"
 
 function BetDetailPage() {
 
@@ -22,6 +23,7 @@ function BetDetailPage() {
 
     return (
        <>
+        <div className="body">
         Now Showing post {currentBet?.betTeam}
         <h1>{currentBet?.User?.username}</h1>
                 <p>
@@ -30,29 +32,24 @@ function BetDetailPage() {
                 <p>
                     Reason: {currentBet?.reason}
                 </p>
-                <div> <StarRating newValue={4}/> </div>
+                <div className="body__info_">
+                <Grid
+                container spacing={2}
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                >
+                {/* <div> <StarRating newValue={4}/> </div> */}
                 {/* <StarRating rating={betCreate.average_rating} />
                 <span>
                     {bet.count ? `(${bet.count})` : "(0)"}
                 </span> */}
-       <div>
            {currentBet?.Reviews && currentBet?.Reviews.map( (review) => (
                <Reviews key={review.id} review={review}/>
            ))}
             {/* {currentBet.betTeam.Reviews.answer} */}
+            </Grid>
         </div>
-        <Grid container spacing={4}>
-            <Grid item>
-                {/* <Reviews /> */}
-            </Grid>
-            <Grid item>
-                {/* <Reviews /> */}
-            </Grid>
-            <Grid item>
-                {/* <Reviews /> */}
-            </Grid>
-        </Grid>
-        <div>
         <AddReview betId={currentBet?.id} />
         </div>
         </>

@@ -1,0 +1,5 @@
+.body__info__reviews {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+}

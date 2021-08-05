@@ -1,0 +1,6 @@
+.body__info_ {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  width: 100%
+}

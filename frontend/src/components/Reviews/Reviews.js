@@ -46,7 +46,14 @@ export default function Reviews( {review}) {
     }, [dispatch]);
 
   return (
-    <div className={classes.root}>
+    // <Grid
+    // container spacing={0}
+    // direction="row"
+    // justifyContent="center"
+    // alignItems="center"
+    // >
+    <div className="body_info_reviews">
+    <div>
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
@@ -66,6 +73,8 @@ export default function Reviews( {review}) {
               </Grid> */}
         </Grid>
       </Paper>
-    </div>
+      </div>
+      </div>
+    // </Grid>
   );
 }

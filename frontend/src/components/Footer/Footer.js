@@ -10,10 +10,12 @@ import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 import PauseCircleOutlineIcon from "@material-ui/icons/PauseCircleOutline";
 import { useDataLayerValue } from '../../DataLayer/DataLayer';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 
 function Footer( { spotify } ) {
-//     const [{ token, item, playing }, dispatch] = useDataLayerValue();
+    //     const [{ token, item, playing }, dispatch] = useDataLayerValue();
 
 //   useEffect(() => {
 //     spotify.getMyCurrentPlaybackState().then((r) => {
@@ -79,7 +81,7 @@ function Footer( { spotify } ) {
             <div className="footer__left">
                 <img
                 className="footer__albumLogo"
-                src="https://upload.wikimedia.org/wikipedia/en/5/5e/Daytona_by_Pusha_T.jpg"
+                src="https://assets-global.website-files.com/5dcc7f8c449e597ed83356b8/603820afd31232aab368ea6f_New%20Red-logo-emblem.png"
                 // src={item?.album.images[0].url}
                 // alt={item?.name}
                 alt=""/>
@@ -95,13 +97,15 @@ function Footer( { spotify } ) {
                     </div>
                 )} */}
                 <div className="footer__songInfo">
-                    <h4>If You Know You Know</h4>
-                    <p>Pusha T</p>
+                    <h4>Sportify Project</h4>
+                    <p>Matt Mores</p>
                 </div>
             </div>
             <div className="footer__center">
-                <ShuffleIcon className="footer__green" />
-                <SkipPreviousIcon className="footer__icon" />
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/matthewmores/" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                <LinkedInIcon className="footer__green" />
+                </a>
+                {/* <SkipPreviousIcon className="footer__icon" /> */}
                 {/* onClick={skipNext}  */}
                 {/* {playing ? (
                 <PauseCircleOutlineIcon
@@ -116,22 +120,26 @@ function Footer( { spotify } ) {
                     className="footer__icon"
                     />
                 )} */}
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/MattMores/Sportify" style={{ color: "inherit", textDecoration: 'inherit'}}>
                 <PlayCircleOutlineIcon fontSize="large" className="footer__icon" />
-                <SkipNextIcon className="footer__icon" />
+                </a>
+                {/* <SkipNextIcon className="footer__icon" /> */}
                 {/* onClick={skipPrevious} */}
-                <RepeatIcon className="footer__green" />
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/MattMores" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                <GitHubIcon className="footer__green" />
+                </a>
             </div>
             <div className="footer__right">
                 <Grid container spacing={2}>
-                    <Grid item>
+                    {/* <Grid item>
                          <PlaylistPlayIcon />
-                    </Grid>
-                    <Grid item>
+                    </Grid> */}
+                    {/* <Grid item>
                         <VolumeDownIcon />
-                    </Grid>
-                    <Grid item xs>
-                        <Slider />
-                    </Grid>
+                    </Grid> */}
+                    {/* <Grid item xs>
+                        <Slider/>
+                    </Grid> */}
                 </Grid>
             </div>
         </div>

@@ -12,6 +12,7 @@ import { getAllBets, betCreate, deleteBet } from "../../store/bets";
 import { Grid, lighten } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
 import SearchIcon from "@material-ui/icons/Search";
+import SongRowFake from '../SongRowFake/SongRowFake';
 
 
 function Body( { spotify }) {
@@ -174,6 +175,7 @@ function Body( { spotify }) {
                         <SongRow key={bet.id} bet={bet} />
                         ))}
                 </div>
+                <SongRowFake/>
         </div>
     )
 }
