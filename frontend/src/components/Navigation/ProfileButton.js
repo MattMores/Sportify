@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import { useDataLayerValue } from '../../DataLayer/DataLayer';
 import SpotifyWebApi from "spotify-web-api-js";
 import { getTokenFromResponse } from '../Splash/spotify';
+import { Avatar } from "@material-ui/core";
 
 const spotify = new SpotifyWebApi();
 
@@ -37,17 +38,18 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <button className="nav-btn-profile" onClick={openMenu}>
+      <i className="fas fa-sign-in-alt" />
       </button>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+        <div>
+          {/* <li className="userDrop-1">User: {user.username}</li>
+          <br></br>
+          <li className="userDrop">Email: {user.email}</li>
+          <li> */}
+            <button className="logout-btn" onClick={logout}>Log Out</button>
+          {/* </li> */}
+        </div>
       )}
     </>
   );

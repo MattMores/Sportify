@@ -9,12 +9,13 @@ import SongRow from '../SongRow/SongRow';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBets, betCreate, deleteBet } from "../../store/bets";
-import { Grid } from "@material-ui/core";
+import { Grid, lighten } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
+import SearchIcon from "@material-ui/icons/Search";
 
 
 function Body( { spotify }) {
-    const [{ discover_weekly }, _dispatch ] = useDataLayerValue();
+    const [{ discover_weekly, spotifyuser, token }, _dispatch ] = useDataLayerValue();
     const history = useHistory();
     const [betTeam, setBetTeam] = useState("");
     const [opposingTeam, setOpposingTeam] = useState("");
@@ -23,8 +24,17 @@ function Body( { spotify }) {
     const [amount, setAmount] = useState("");
     const [reason, setReason] = useState("");
     const dispatch = useDispatch();
-    const allBets = useSelector(state => Object.values(state.bets));
+    let allBets = useSelector(state => Object.values(state.bets));
     const userId = useSelector(state => state.session.user?.id);
+    const [search, setSearch] = useState("");
+
+    const searchFeature = () => {
+        return allBets.filter((bet) =>
+        bet.betTeam.toLowerCase().includes(search.toLowerCase())
+        );
+    }
+
+    allBets = searchFeature();
 
     console.log("000000000", allBets)
 
@@ -89,14 +99,17 @@ function Body( { spotify }) {
             <div className="body__info">
                 {/* <img src="https://thumb.spokesman.com/GsJALbsxruDIAgPJdGdubb-x00I=/2500x0/media.spokesman.com/photos/2020/07/15/5f0dee5554d81.hires.jpg" alt=""/> */}
                 <img
-                src={discover_weekly?.images[0].url}
+                // src={spotifyuser?.images[0]?.url}
+                src="https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly.png"
+                // src={discover_weekly?.images[0].url}
                 alt=""
                 />
                 <div className="body__infoText">
-                    <strong>PLAYLIST</strong>
+                    <strong>BETLIST</strong>
                     <h2>Discover Bets Weekly</h2>
                 {/* <p>description...</p> */}
-                    <p>{discover_weekly?.description}</p>
+                    {/* <p>{discover_weekly?.description}</p> */}
+                    <p>Your weekly mixtape of fresh bets. Enjoy new bets and deep cuts selected by your friends. Create, post and update your own bets. And be sure to comment and rate the bets of your friends.</p>
                 </div>
                 </div>
                 <div className="body__songs">
@@ -141,6 +154,16 @@ function Body( { spotify }) {
                         </Grid>
                       </Grid>
                     </form>
+                </div>
+                <div className="header__left">
+                     <SearchIcon />
+                      <input
+                          id="searchBets"
+                          placeholder="Search for teams to bet on"
+                          type="search"
+                          value={search}
+                          onChange={(e) => setSearch(e.target.value)}
+                      />
                 </div>
                     {/* List of songs */}
                     {/* {discover_weekly?.tracks.items.map( (item) => (

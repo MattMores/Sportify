@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./Login.css"
-import therock from "./therock.svg"
+import anothertry from "./anothertry.png"
+
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -23,11 +24,11 @@ function LoginForm() {
 
   return (
     <>
-      <div className="header-3">Spotify Says...</div>
-      <div className="header-2">Log In</div>
+      {/* <div className="header-3">Spotify Says...</div>
+      <div className="header-2">Log In</div> */}
       <div className="content"></div>
-      <div className='image-2'>
-        <img className="img" src={therock} alt=""/>
+      <div>
+        <img className="img-anothertry" src={anothertry} alt=""/>
       </div>
       <div className="form">
       <form onSubmit={handleSubmit}>

@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./Login.css"
 import therock from "./therock.svg"
+import anothertry from "./anothertry.png"
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -26,21 +27,21 @@ function SignupFormPage() {
           if (data && data.errors) setErrors(data.errors);
         });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(['Passwords Must Match']);
   };
 
   return (
     <>
-      <div className="header-3">The Rock Says...</div>
-      <div className="header-2">Sign Up</div>
+      {/* <div className="header-3">The Rock Says...</div>
+      <div className="header-2">Sign Up</div> */}
       <div className="content"></div>
-      <div className='image-2'>
-        <img className="img" src={therock} alt=""/>
+      <div>
+        <img className="img-anothertry" src={anothertry} alt=""/>
       </div>
       <div className="form-2">
       <form onSubmit={handleSubmit}>
         <div className="error">
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors.map((error, idx) => <div key={idx}>{error}</div>)}
         </div>
         <div className="form-group">
         <label className="label">Email</label>

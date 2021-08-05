@@ -1,3 +1,74 @@
 .profile-dropdown {
-  position: absolute;
+  position: -webkit-sticky;
+}
+
+.nav-btn-profile {
+  border-radius: 10px;
+  border: none;
+  margin: 4px;
+  width: 50px;
+  height: 30px;
+  margin-top: 5px;
+  /* background-color: #03a82d; */
+  background-color: white;
+  /* padding: 8px 10px; */
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.nav-btn-profile:hover {
+  background: #1db954;
+}
+
+.profile-dropdown li {
+  color: white;
+  padding-top: 1px;
+  /* background: gray; */
+  /* border: black;
+  border-style: dotted; */
+  /* position: absolute; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  display: flex;
+  /* text-align: center; */
+  /* z-index: 100; */
+  /* margin-left: 200px; */
+}
+
+.userDrop {
+  text-align: center;
+  /* font-size: 14px; */
+  border: white;
+  border-style: dotted;
+  /* margin-right: 30px; */
+  /* margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-left: 5px;
+  padding-right: 5px; */
+}
+
+.userDrop-1 {
+  border: black;
+  border-style: dotted;
+  /* padding-left: 5px; */
+  /* padding-right: 88px; */
+  /* font-size: 14px; */
+}
+
+/* .profile-dropdown button {
+  width: 190px;
+} */
+
+.logout-btn {
+  border-radius: 10px;
+  border: none;
+  /* margin: 15px;
+  width: 80px;
+  height: 30px; */
+  /* margin-top: 10px; */
+  background-color: #1db954;
+  padding: 8px 10px;
+  /* border-radius: 50px; */
+  cursor: pointer;
 }
