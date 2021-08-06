@@ -78,6 +78,7 @@
   align-items: center;
   margin-right: 100px;
   margin-left: 20px;
+  margin-bottom: 10px;
   /* margin-left: 50px; */
 }
 
@@ -112,4 +113,41 @@
   background-color: #ffffff;
   box-shadow: 0px 0px 12px 0.8px rgb(0, 110, 255);
   border-radius: 10px;
+}
+
+.error__bets {
+  /* border: 2px solid #ff5f5f;
+      height: 5.4rem;
+      padding: 15px 20px;
+      border-radius: 8px;
+      position: absolute;
+      bottom: -3.5rem;
+      background-color: #a81b1b;
+      color: white; */
+  color: red;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-right: 270px;
+}
+
+.auth-btn_ {
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+  padding: 13px 20px 12px 20px;
+  border: 0;
+  background-color: black;
+  color: #fff;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.auth-btn_:hover {
+  /* background-color: rgb(0, 110, 255); */
+  background-color: #1ed15e;
+}
+
+.auth-btn_:focus {
+  outline: none;
 }

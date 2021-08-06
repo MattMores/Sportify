@@ -21,7 +21,7 @@ function Body( { spotify }) {
     const history = useHistory();
     const [betTeam, setBetTeam] = useState("");
     const [opposingTeam, setOpposingTeam] = useState("");
-    const [betType, setBetType] = useState("Bet Type");
+    const [betType, setBetType] = useState("Straight");
     const [line, setLine] = useState("");
     const [amount, setAmount] = useState("");
     const [reason, setReason] = useState("");
@@ -29,6 +29,7 @@ function Body( { spotify }) {
     let allBets = useSelector(state => Object.values(state.bets));
     const userId = useSelector(state => state.session.user?.id);
     const [search, setSearch] = useState("");
+    const [errors, setErrors] = useState("");
 
     const searchFeature = () => {
         return allBets.filter((bet) =>
@@ -84,12 +85,22 @@ function Body( { spotify }) {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
-        let createdBet = dispatch(betCreate(newBet))
-        dispatch(getAllBets())
-        if (createdBet) {
-          setBetTeam("")
-          history.push('/bets')
+        if (betTeam && opposingTeam && betType && line && amount && reason) {
+          setErrors("")
+          const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
+          let createdBet = dispatch(betCreate(newBet))
+          dispatch(getAllBets())
+          if (createdBet) {
+            setBetTeam("")
+            setOpposingTeam("")
+            setBetType("Straight")
+            setLine("")
+            setAmount("")
+            setReason("")
+            history.push('/bets')
+        }
+        } else {
+         setErrors("All fields must be filled")
         }
       }
 
@@ -127,15 +138,35 @@ function Body( { spotify }) {
                   <div className="body__info">
                     {/* <tr key={bet.id}></tr> */}
                     <form action="">
+                    <div className="error__bets">
+                        {/* {errors.map((error, idx) => <div key={idx}>{error}</div>)} */}
+                        <div>{errors}</div>
+                      </div>
                       <Grid container spacing={2}>
                       <Grid item>
                         <input value={betTeam} onChange={e => setBetTeam(e.target.value)} type = "text" className="input" placeholder="Team #1"/>
                       </Grid>
                       <Grid item>
-                        <input value={amount} onChange={e => setAmount(e.target.value)} type = "text" className="input" placeholder="$$ Amount $$"/>
+                        <input value={amount} onChange={e => {if (isNaN(Number(e.target.value))){
+                          setErrors("Input must be a Number")
+                          return
+                        }
+                          else {
+                            setErrors("")
+                            setAmount(e.target.value)
+                          }
+                        }} type = "text" className="input" placeholder="$$ Amount $$"/>
                       </Grid>
                       <Grid item>
-                        <input value={line} onChange={e => setLine(e.target.value)} type = "text" className="input" placeholder="Line"/>
+                        <input value={line} onChange={e => {if (isNaN(Number(e.target.value))){
+                          setErrors("Line and Amount must be a Number")
+                          return
+                        }
+                          else {
+                            setErrors("")
+                            setLine(e.target.value)
+                          }
+                        }} type = "text" className="input" placeholder="Line"/>
                       </Grid>
                         <Grid item>
                         <input value={opposingTeam} onChange={e => setOpposingTeam(e.target.value)} className="input" type="text" placeholder="Team #2"/>
@@ -154,7 +185,7 @@ function Body( { spotify }) {
                         </select>
                         </Grid>
                         <Grid item>
-                          <button onClick={handleSubmit} type="submit" className="auth-btn">Add Bet</button>
+                          <button onClick={handleSubmit} type="submit" className="auth-btn_">Add Bet</button>
                         </Grid>
                       </Grid>
                     </form>

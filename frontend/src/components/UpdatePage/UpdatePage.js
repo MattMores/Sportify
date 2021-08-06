@@ -13,7 +13,7 @@ function UpdatePageModal( {bet} ) {
 
     return (
         <>
-            <button className="btn" onClick={() => handleUpdate(bet.id)}>
+            <button className="auth-btn_row" onClick={() => handleUpdate(bet.id)}>
                 Update </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

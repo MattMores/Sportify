@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import UpdatePageModal from '../UpdatePage/UpdatePage';
 import StarRating from '../StarRating/StarRating';
+import songrowlogo_cropped from "./songrowlogo_cropped.png"
 
 
 // function SongRow( {track, playSong}) {
@@ -59,7 +60,7 @@ function SongRow( {bet} ) {
     // onClick={() => handleBetSelect(bet.id)}
     return (
         <div className="songRow">
-            <img className="songRow__album" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNPTaZg8bHVoBAhrIgdvUgAm8RCArXFLPSQ&usqp=CAU" alt=""/>
+            <img className="songRow__album" src={songrowlogo_cropped} alt=""/>
             <div className="songRow__info">
                 <h1>{bet?.User?.username}</h1>
                 <p>
@@ -71,14 +72,14 @@ function SongRow( {bet} ) {
                 <Grid container spacing={2}>
                 <Grid item>
                 {/* {bet.userId === id ? <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button> : null} */}
-                <button onClick={() => handleBetSelect(bet.id)} className="btn">Comment</button>
+                <button onClick={() => handleBetSelect(bet.id)} className="auth-btn_row">Comment</button>
                 </Grid>
                 <Grid item>
                 {/* {bet.userId === id ? <button onClick={() => handleUpdate(bet.id)} className="btn">Update Bet</button> : null} */}
                 {bet?.userId === id ? <UpdatePageModal bet= {bet} /> : null}
                 </Grid>
                 <Grid item>
-                {bet?.userId === id ? <button onClick={() => handleDelete(bet?.id)} className="btn">Delete Bet</button> : null}
+                {bet?.userId === id ? <button onClick={() => handleDelete(bet?.id)} className="auth-btn_row">Delete Bet</button> : null}
                 </Grid>
                 </Grid>
             </div>
