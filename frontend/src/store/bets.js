@@ -35,7 +35,6 @@ export const getAllBets = () => async (dispatch) => {
 }
 
 export const betCreate = (bet) => async (dispatch) => {
-    console.log("BBBBBBBBBBBB", bet)
     // const { userId, title, content, notebookId } = note; //notebookId
     const res = await csrfFetch("/api/bets", {
         method: "POST",
@@ -43,7 +42,6 @@ export const betCreate = (bet) => async (dispatch) => {
     });
     if (res.ok) {
         const bet = await res.json();
-        console.log("&&&&&&&&&&&&&&", bet)
         dispatch(addBet(bet))
         return res;
     }

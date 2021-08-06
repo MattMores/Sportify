@@ -31,6 +31,7 @@ function SongRow( {bet} ) {
     const { id } = useSelector(state => state.session.user);
     const dispatch = useDispatch()
     const history = useHistory();
+    const user = useSelector(state => state.session.user);
 
     // const renderRating = (bet) => {
     //     if (!bet.count) {
@@ -62,12 +63,12 @@ function SongRow( {bet} ) {
         <div className="songRow">
             <img className="songRow__album" src={songrowlogo_cropped} alt=""/>
             <div className="songRow__info">
-                <h1>{bet?.User?.username}</h1>
+                <h1>{user.username}</h1>
                 <p>
-                    ${bet?.amount}: {bet?.betTeam} +{bet?.line} ({bet?.betType}) vs. {bet?.opposingTeam}
+                    ${bet.amount}: {bet.betTeam} +{bet.line} ({bet.betType}) vs. {bet.opposingTeam}
                 </p>
                 <p>
-                    Reason: {bet?.reason}
+                    Reason: {bet.reason}
                 </p>
                 <Grid container spacing={2}>
                 <Grid item>

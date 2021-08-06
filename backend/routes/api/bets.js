@@ -26,21 +26,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 // create a bet
 
 router.post('/', asyncHandler(async (req, res) => {
-    // let { userId, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
     const betInfo = req.body;
-    console.log("----------------------------", betInfo)
     const bet = await Bet.create(betInfo)
-    console.log("6666666", res.json(bet))
-      // console.log("--------------------", userId, title, content); //notebookId
-    //   const bet = await Bet.create({
-    //     userId,
-    //     betTeam,
-    //     opposingTeam,
-    //     betType,
-    //     line,
-    //     amount,
-    //     reason
-    //   });
       res.json(bet);
     }));
 

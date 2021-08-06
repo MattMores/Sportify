@@ -86,17 +86,17 @@ function Body( { spotify }) {
       const handleSubmit = (e) => {
         e.preventDefault();
         if (betTeam && opposingTeam && betType && line && amount && reason) {
-          setErrors("")
-          const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
-          let createdBet = dispatch(betCreate(newBet))
-          dispatch(getAllBets())
-          if (createdBet) {
+            setErrors("")
             setBetTeam("")
             setOpposingTeam("")
             setBetType("Straight")
             setLine("")
             setAmount("")
             setReason("")
+          const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
+          let createdBet = dispatch(betCreate(newBet))
+          dispatch(getAllBets())
+          if (createdBet) {
             history.push('/bets')
         }
         } else {

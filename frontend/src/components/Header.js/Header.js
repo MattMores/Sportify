@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 function Header() {
     const classes = useStyles();
     const sessionUser = useSelector(state => state.session.user);
-    console.log("99999666666", sessionUser)
     const [ { spotifyuser, token}, dispatch] = useDataLayerValue();
 
 

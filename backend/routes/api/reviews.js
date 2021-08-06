@@ -21,7 +21,7 @@ router.post('/', asyncHandler(async (req, res) => {
     const reviewInfo = req.body;
     console.log("----------------------------", reviewInfo)
     const review = await Review.create(reviewInfo)
-    console.log("6666666", res.json(review))
+    // console.log("6666666", res.json(review))
       // console.log("--------------------", userId, title, content); //notebookId
     //   const bet = await Bet.create({
     //     userId,
