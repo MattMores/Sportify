@@ -63,7 +63,7 @@ function SongRow( {bet} ) {
         <div className="songRow">
             <img className="songRow__album" src={songrowlogo_cropped} alt=""/>
             <div className="songRow__info">
-                <h1>{user.username}</h1>
+                <h1>{bet?.User?.username}</h1>
                 <p>
                     ${bet.amount}: {bet.betTeam} +{bet.line} ({bet.betType}) vs. {bet.opposingTeam}
                 </p>

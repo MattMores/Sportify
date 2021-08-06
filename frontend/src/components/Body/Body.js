@@ -39,45 +39,43 @@ function Body( { spotify }) {
 
     allBets = searchFeature();
 
-    console.log("000000000", allBets)
+    // const playPlaylist = (id) => {
+    //     spotify
+    //       .play({
+    //         context_uri: `spotify:playlist:0jZc9KmCnD8evywM006qgi`,
+    //       })
+    //       .then((res) => {
+    //         spotify.getMyCurrentPlayingTrack().then((r) => {
+    //           _dispatch({
+    //             type: "SET_ITEM",
+    //             item: r.item,
+    //           });
+    //           _dispatch({
+    //             type: "SET_PLAYING",
+    //             playing: true,
+    //           });
+    //         });
+    //       });
+    //   };
 
-    const playPlaylist = (id) => {
-        spotify
-          .play({
-            context_uri: `spotify:playlist:0jZc9KmCnD8evywM006qgi`,
-          })
-          .then((res) => {
-            spotify.getMyCurrentPlayingTrack().then((r) => {
-              _dispatch({
-                type: "SET_ITEM",
-                item: r.item,
-              });
-              _dispatch({
-                type: "SET_PLAYING",
-                playing: true,
-              });
-            });
-          });
-      };
-
-      const playSong = (id) => {
-        spotify
-          .play({
-            uris: [`spotify:track:${id}`],
-          })
-          .then((res) => {
-            spotify.getMyCurrentPlayingTrack().then((r) => {
-              _dispatch({
-                type: "SET_ITEM",
-                item: r.item,
-              });
-              _dispatch({
-                type: "SET_PLAYING",
-                playing: true,
-              });
-            });
-          });
-      };
+      // const playSong = (id) => {
+      //   spotify
+      //     .play({
+      //       uris: [`spotify:track:${id}`],
+      //     })
+      //     .then((res) => {
+      //       spotify.getMyCurrentPlayingTrack().then((r) => {
+      //         _dispatch({
+      //           type: "SET_ITEM",
+      //           item: r.item,
+      //         });
+      //         _dispatch({
+      //           type: "SET_PLAYING",
+      //           playing: true,
+      //         });
+      //       });
+      //     });
+      // };
 
       useEffect(() => {
         dispatch(getAllBets());
@@ -85,7 +83,7 @@ function Body( { spotify }) {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        if (betTeam && opposingTeam && betType && line && amount && reason) {
+        if (betTeam && opposingTeam && line && amount && reason && betType) {
             setErrors("")
             setBetTeam("")
             setOpposingTeam("")
@@ -95,7 +93,7 @@ function Body( { spotify }) {
             setReason("")
           const newBet = {userId, betTeam, opposingTeam, betType, line, amount, reason }
           let createdBet = dispatch(betCreate(newBet))
-          dispatch(getAllBets())
+          // dispatch(getAllBets())
           if (createdBet) {
             history.push('/bets')
         }
@@ -210,7 +208,10 @@ function Body( { spotify }) {
                         <SongRow key={bet.id} bet={bet} />
                         ))}
                 </div>
-                <SongRowFake/>
+                <br></br>
+                <br></br>
+                <br></br>
+                {/* <SongRowFake/> */}
         </div>
     )
 }
