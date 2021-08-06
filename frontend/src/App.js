@@ -27,19 +27,20 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  // return isLoaded &&
   return (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true}>
           <Navigation isLoaded={isLoaded} />
         </Route>
-        <ProtectedRoute exact path="/bets">
+        <ProtectedRoute isLoaded={isLoaded} exact path="/bets">
           <Home spotify={spotify} />
         </ProtectedRoute>
         {/* <ProtectedRoute exact path="/bets/:id/update">
           <UpdatePageModal />
         </ProtectedRoute> */}
-        <ProtectedRoute exact path="/bets/:id">
+        <ProtectedRoute isLoaded={isLoaded} exact path="/bets/:id">
           <BetDetailPage />
         </ProtectedRoute>
         <BlockedRoute path='/'/>
