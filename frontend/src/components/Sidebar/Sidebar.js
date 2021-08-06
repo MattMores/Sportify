@@ -23,9 +23,9 @@ function Sidebar() {
         {/* <a target="_blank" rel="noopener noreferrer" href="https://github.com/MattMores" style={{ color: "inherit", textDecoration: 'inherit'}}>
         <SidebarOption Icon={GitHubIcon} title="GitHub Profile" />
         </a> */}
-        <NavLink to="/splash" exact={true} style={{ color: "inherit", textDecoration: 'inherit'}}>
-            <SidebarOption Icon={LibraryMusicIcon} title="Spotify Auth" />
-        </NavLink>
+        <a target="_blank" rel="noopener noreferrer" href="https://developer.spotify.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
+            <SidebarOption Icon={LibraryMusicIcon} title="Spotify For Developers" />
+         </a>
         <br />
         <strong className="sidebar__title">BETTING RESOURCES</strong>
         {/* hr = horizantal row line break */}

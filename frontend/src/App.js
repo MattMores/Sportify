@@ -12,6 +12,7 @@ import BlockedRoute from './components/auth/BlockedRoute';
 import Home from './components/Home/Home';
 import SpotifyWebApi from "spotify-web-api-js";
 import UpdatePageModal from './components/UpdatePage/UpdatePage';
+import Sidebar from './components/Sidebar/Sidebar';
 // import UpdatePage from './components/UpdatePage/UpdatePate';
 import BetDetailPage from './components/BetDetailPage/BetDetailPage';
 

@@ -13,6 +13,7 @@ import { Grid, lighten } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
 import SearchIcon from "@material-ui/icons/Search";
 import SongRowFake from '../SongRowFake/SongRowFake';
+import TextField from '@material-ui/core/TextField';
 
 
 function Body( { spotify }) {
@@ -99,12 +100,14 @@ function Body( { spotify }) {
             <Header spotify={spotify}/>
             <div className="body__info">
                 {/* <img src="https://thumb.spokesman.com/GsJALbsxruDIAgPJdGdubb-x00I=/2500x0/media.spokesman.com/photos/2020/07/15/5f0dee5554d81.hires.jpg" alt=""/> */}
+                { token ? (<img src={spotifyuser?.images[0]?.url} alt=""/>) : (
                 <img
                 // src={spotifyuser?.images[0]?.url}
                 src="https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly.png"
                 // src={discover_weekly?.images[0].url}
                 alt=""
                 />
+                )}
                 <div className="body__infoText">
                     <strong>BETLIST</strong>
                     <h2>Discover Bets Weekly</h2>
@@ -114,13 +117,13 @@ function Body( { spotify }) {
                 </div>
                 </div>
                 <div className="body__songs">
-                <div className="body__icons">
+                {/* <div className="body__icons">
                     <PlayCircleFilledIcon
                     className="body__shuffle"
                     onClick={playPlaylist}/>
                     <FavoriteIcon fontSize="large"/>
                     <MoreHorizIcon />
-                </div>
+                </div> */}
                   <div className="body__info">
                     {/* <tr key={bet.id}></tr> */}
                     <form action="">
@@ -160,10 +163,11 @@ function Body( { spotify }) {
                      <SearchIcon />
                       <input
                           id="searchBets"
-                          placeholder="Search for teams to bet on"
+                          placeholder="Search For Teams To Bet On..."
                           type="search"
                           value={search}
                           onChange={(e) => setSearch(e.target.value)}
+                          className="input-5"
                       />
                 </div>
                     {/* List of songs */}

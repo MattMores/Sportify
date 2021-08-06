@@ -1,15 +1,23 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+} */
+
+.footer__green {
+  color: #1ed15e;
 }
 
 .header__right {
   display: flex;
+  right: 5px;
+  flex: 0.5;
+  float: right;
   align-items: center;
+  /* margin-left: 800px; */
 }
 
-.header__left {
+.header_left {
   flex: 0.5;
   min-width: 70px;
   background-color: white;
@@ -20,11 +28,13 @@
   align-items: center;
 }
 
-.header__left > input {
+.header_left > input {
   border: none;
   width: 100%;
 }
 
-.header__right > h4 {
-  margin-left: 10px;
+.user_info_h4 {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 15px;
 }

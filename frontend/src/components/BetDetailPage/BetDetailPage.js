@@ -8,6 +8,8 @@ import Reviews from '../Reviews/Reviews';
 import { Grid } from '@material-ui/core';
 import AddReview from '../AddReview/AddReview';
 import "./BetDetailPage.css"
+import Footer from '../Footer/Footer';
+import Sidebar from '../Sidebar/Sidebar';
 
 function BetDetailPage() {
 
@@ -52,6 +54,7 @@ function BetDetailPage() {
         </div>
         <AddReview betId={currentBet?.id} />
         </div>
+        <Footer />
         </>
     )
 }
