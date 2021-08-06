@@ -7,6 +7,10 @@ import { reviewCreate } from '../../store/reviews';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBets, betCreate, deleteBet } from "../../store/bets";
 import { useParams, useHistory, useLocation } from 'react-router';
+import { Grid, lighten } from "@material-ui/core";
+import { NavLink } from 'react-router-dom';
+import "./AddReview.css"
+
 
 const betTypes = [
     {
@@ -37,11 +41,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AddReview( {betId}) {
   const { id } = useParams();
-  console.log("matthew", id)
   const classes = useStyles();
 //   const [currency, setCurrency] = React.useState('EUR');
   const [name, setName] = useState("");
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState(5);
   const [answer, setAnswer] = useState("");
   const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
@@ -71,50 +74,46 @@ const handleSubmitReview = async (e) => {
 //   history.push(location.pathname) - useLocation
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-      {/* <TextField id="standard-secondary" label="Standard secondary" color="secondary" />
-      <TextField
-        id="filled-secondary"
-        label="Filled secondary"
-        variant="filled"
-        color="secondary"
-      /> */}
-      <TextField
-        id="name"
-        value={name}
-        onChange = {e => setName(e.target.value)}
-        label="Outlined secondary"
-        variant="outlined"
-        color="primary"
-      />
-      <TextField
-      id="rating"
-      select
-      label="Pick"
-      value={rating}
-      onChange={e => setRating(e.target.value)}
-    //   onChange={handleChange}
-      helperText="Please select your currency"
-      >
-          {betTypes.map((option) => (
-               <MenuItem key={option.value} value={option.value}>
-                   {option.value}
-                   </MenuItem>
-                   ))}
-        {/* <option value="1">1</option>
-        <option value="2">2</option> */}
-    </TextField>
-    <TextField
-          id="answer"
-          label="Review"
-          value={answer}
-          onChange={e => setAnswer(e.target.value)}
-          multiline
-          rows={4}
-        //   defaultValue="Comment"
-          variant="outlined"
-        />
-    <button onClick={handleSubmitReview} type="submit" className="auth-btn">Add Comment</button>
+    <div className="body__Review">
+    <div className="body__info__AddReview">
+    <form action="">
+      <Grid container spacing={1}>
+      <Grid item>
+      <input value={name}
+      onChange={e => setName(e.target.value)}
+      type = "text"
+      className="input__Review"
+      placeholder="Your Name"/>
+      </Grid>
+      <Grid item>
+        <textarea rows="5" cols="40" value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input__Comment" placeholder="Comment"/>
+      </Grid>
+      <Grid item>
+            <select value={rating} onChange={e => setRating (e.target.value)} placeHolder="Rating" className="input__Review">
+              <option disabled>Rating</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+      </Grid>
+      <Grid item>
+      <button onClick={handleSubmitReview} type="submit" className="auth-btn">Add Comment</button>
+      </Grid>
+      <Grid item>
+      <NavLink to="/bets" exact={true} style={{ color: "inherit", textDecoration: 'inherit'}}>
+      <button className="auth-btn">Home Page</button>
+      </NavLink>
+      </Grid>
+      </Grid>
     </form>
+    </div>
+    </div>
   );
 }

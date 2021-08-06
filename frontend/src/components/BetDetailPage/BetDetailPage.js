@@ -26,34 +26,34 @@ function BetDetailPage() {
     return (
        <>
         <div className="body">
-        Now Showing post {currentBet?.betTeam}
-        <h1>{currentBet?.User?.username}</h1>
-                <p>
-                    ${currentBet?.amount}: {currentBet?.betTeam} +{currentBet?.line} ({currentBet?.betType}) vs. {currentBet?.opposingTeam}
+       <div className="body__info_betTitle">
+        <div className="body__infoText_">
+        <div className="betDetailContainer">
+        <h1 className="betDetailHeader">{currentBet?.User?.username}</h1>
+                <p className="betDetailDescription">
+                    Bet: ${currentBet?.amount}: {currentBet?.betTeam} +{currentBet?.line} ({currentBet?.betType}) vs. {currentBet?.opposingTeam}
                 </p>
-                <p>
+                <p className="betDetailDescription">
                     Reason: {currentBet?.reason}
                 </p>
+                </div>
+                </div>
+                </div>
                 <div className="body__info_">
-                <Grid
-                container spacing={2}
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                >
-                {/* <div> <StarRating newValue={4}/> </div> */}
-                {/* <StarRating rating={betCreate.average_rating} />
-                <span>
-                    {bet.count ? `(${bet.count})` : "(0)"}
-                </span> */}
-           {currentBet?.Reviews && currentBet?.Reviews.map( (review) => (
-               <Reviews key={review.id} review={review}/>
-           ))}
-            {/* {currentBet.betTeam.Reviews.answer} */}
-            </Grid>
+                <Grid container spacing={2}>
+                    {currentBet?.Reviews && currentBet?.Reviews.map( (review) => (
+                        <Reviews key={review.id} review={review}/>
+                            ))}
+                </Grid>
+                <br></br>
         </div>
         <AddReview betId={currentBet?.id} />
         </div>
+        <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
         <Footer />
         </>
     )

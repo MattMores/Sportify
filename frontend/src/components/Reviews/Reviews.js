@@ -13,17 +13,20 @@ import { deleteReview } from '../../store/reviews';
 import { useParams, useHistory, useLocation } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    overflow: 'hidden',
-    padding: theme.spacing(0, 3),
-  },
-  paper: {
-    maxWidth: 400,
-    margin: `${theme.spacing(1)}px auto`,
-    padding: theme.spacing(2),
-  },
-}));
+    root: {
+      flexGrow: 1,
+      overflow: 'hidden',
+      padding: theme.spacing(0, 3),
+    },
+    paper: {
+      maxWidth: 500,
+      minWidth: 500,
+      minHeight: 100,
+      maxHeight: 200,
+      margin: `${theme.spacing(3)}px auto`,
+      padding: theme.spacing(2),
+    },
+  }));
 
 export default function Reviews( {review}) {
     const dispatch = useDispatch();
@@ -52,29 +55,27 @@ export default function Reviews( {review}) {
     // justifyContent="center"
     // alignItems="center"
     // >
-    <div className="body_info_reviews">
-    <div>
+    <div className="body__info__reviews">
+    <div className={classes.root}>
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>W</Avatar>
+            <Avatar>{review.rating}</Avatar>
           </Grid>
           <Grid item xs>
-            <StarRating />
-            <div className="review_name">{review.name}</div>
-            <Typography>{review.answer}</Typography>
+            {/* <StarRating /> */}
+            <div className="review_name">Name: {review.name}</div>
+            <br></br>
+            <Typography>Comment: {review.answer}</Typography>
           </Grid>
           <Grid item>
               {review?.userId === id ? <UpdateReviewsModal review={review} /> : null}
-              {review?.userId === id ? <button onClick={() => handleDelete(review?.id)} className="btn">Delete</button> : null}
-              </Grid>
-              {/* <Grid item>
-              {review?.userId === id ? <button onClick={() => handleDelete(review?.id)} className="btn">Delete Bet</button> : null}
-              </Grid> */}
+              {review?.userId === id ? <button onClick={() => handleDelete(review?.id)} className="auth-btn_row">Delete</button> : null}
+            </Grid>
         </Grid>
       </Paper>
       </div>
-      </div>
-    // </Grid>
+    </div>
+
   );
 }

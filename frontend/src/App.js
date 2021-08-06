@@ -28,11 +28,11 @@ function App() {
   }, [dispatch]);
 
   // return isLoaded &&
-  return (
+  return isLoaded && (
     <BrowserRouter>
       <Switch>
         <Route path='/' exact={true}>
-          <Navigation isLoaded={isLoaded} />
+          <Navigation spotify={spotify} isLoaded={isLoaded} />
         </Route>
         <ProtectedRoute isLoaded={isLoaded} exact path="/bets">
           <Home spotify={spotify} />
@@ -41,7 +41,7 @@ function App() {
           <UpdatePageModal />
         </ProtectedRoute> */}
         <ProtectedRoute isLoaded={isLoaded} exact path="/bets/:id">
-          <BetDetailPage />
+          <BetDetailPage spotify={spotify} />
         </ProtectedRoute>
         <BlockedRoute path='/'/>
       </Switch>

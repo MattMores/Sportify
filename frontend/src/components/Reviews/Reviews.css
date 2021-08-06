@@ -1,5 +1,20 @@
 .body__info__reviews {
   display: flex;
   align-items: flex-end;
-  padding: 10px;
+  /* padding: 40px; */
+  width: 90%;
+}
+
+.body__info_betTitle {
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  width: 90%;
+  justify-content: center;
+  /* align-content: center; */
+  /* text-align: center; */
+  margin: 50px;
+  /* margin-right: 500px; */
+  /* padding-left: 500px; */
+  border: solid;
 }

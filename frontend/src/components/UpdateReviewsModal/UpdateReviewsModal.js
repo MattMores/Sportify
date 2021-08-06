@@ -13,7 +13,7 @@ function UpdateReviewsModal( {review}) {
 
     return (
         <>
-            <button className="btn" onClick={() => handleReviewUpdate(review.id)}>
+            <button className="auth-btn_row" onClick={() => handleReviewUpdate(review.id)}>
                 Update </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>

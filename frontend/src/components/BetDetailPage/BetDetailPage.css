@@ -1,7 +1,42 @@
-.body__info_ {
+.body__info_betTitle {
   display: flex;
   align-items: flex-end;
-  padding: 10px;
-  width: 100%;
+  padding: 20px;
+  width: 90%;
+  justify-content: center;
+  /* align-content: center; */
+  /* text-align: center; */
+  margin: 50px;
+  /* margin-right: 500px; */
+  /* padding-left: 500px; */
+  border: solid;
 }
 
+.body__infoText_ {
+  flex: 1;
+  align-items: flex-end;
+}
+
+.betDetailHeader {
+  font-size: 50px;
+  display: flex;
+  padding-right: 100px;
+}
+
+.betDetailDescription{
+    font-size: 18px;
+    display: flex;
+    padding-right: 60px;
+  }
+
+.betDetailContainer {
+  /* padding-left: 50px; */
+  display: flex;
+  /* align-content: center; */
+}
+
+.body__info_ {
+    /* display: flex;
+    align-items: flex-end; */
+    margin-left: 70px;
+  }

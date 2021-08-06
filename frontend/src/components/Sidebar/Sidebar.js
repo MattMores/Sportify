@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import cropped_full_green from'../../assets/cropped_full_green.png'
 import sidebarLogo from "./sidebarLogo.png"
+import ShopTwoIcon from '@material-ui/icons/ShopTwo';
 
 function Sidebar() {
     const [{playlists}, dispatch] = useDataLayerValue()
@@ -17,9 +18,11 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <img className="sidebar__logo" src={cropped_full_green} alt="" />
-        <NavLink to="/bets" exact={true} style={{ color: "inherit", textDecoration: 'inherit'}}>
-            <SidebarOption Icon={HomeIcon} title="Home"/>
-        </NavLink>
+            <strong className="sidebar__title">REFERENCES</strong>
+            <hr />
+            <a target="_blank" rel="noopener noreferrer" href="https://material-ui.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
+            <SidebarOption Icon={ShopTwoIcon} title="Material UI"/>
+            </a>
         {/* <a target="_blank" rel="noopener noreferrer" href="https://github.com/MattMores" style={{ color: "inherit", textDecoration: 'inherit'}}>
         <SidebarOption Icon={GitHubIcon} title="GitHub Profile" />
         </a> */}
