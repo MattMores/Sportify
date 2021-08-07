@@ -22,6 +22,7 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const [{spotifyuser, token}, dispatch] = useDataLayerValue();
 
+
   useEffect(() => {
     const hash = getTokenFromResponse();
     window.location.hash = "";

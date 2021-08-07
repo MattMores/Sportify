@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./Login.css"
 import anothertry from "./anothertry.png"
-
+import { useHistory } from "react-router";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -22,10 +22,20 @@ function LoginForm() {
     );
   };
 
+  const handleDemo = (e) => {
+    e.preventDefault();
+    setErrors([]);
+    const email = 'demouser@gmail.com';
+    const pw = 'password';
+    return dispatch(sessionActions.login({ email, pw }))
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
+};
+
   return (
     <>
-      {/* <div className="header-3">Spotify Says...</div>
-      <div className="header-2">Log In</div> */}
       <div className="content"></div>
       <div>
         <img className="img-anothertry" src={anothertry} alt=""/>
@@ -63,6 +73,11 @@ function LoginForm() {
         <button className="auth-btn" type="submit">Log In</button>
         </div>
       </form>
+      <div>
+        <form onSubmit={handleDemo}>
+        <button type="submit" id="demo">Demo Login</button>
+        </form>
+      </div>
       </div>
     </>
   );
