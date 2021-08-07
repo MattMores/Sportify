@@ -7,7 +7,10 @@ const { Bet, Review, User } = require('../../db/models');
 
 // get all bets
 router.get('/', asyncHandler(async (req, res) => {
-    const bets = await Bet.findAll( {include: [Review, User]});
+    const bets = await Bet.findAll( {
+        include: [Review, User],
+        // order: [['createdAt', 'ASC']]
+    });
     // console.log("wwwwwwwwwwww", bets);
     res.json(bets)
     // bets.length
