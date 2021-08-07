@@ -17,6 +17,7 @@ function UpdateReview({setShowModal , review}) {
     const [rating, setRating] = useState(review.rating);
     const [answer, setAnswer] = useState(review.answer);
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState("");
     // const allBets = useSelector(state => Object.values(state.bets));
     // const userId = useSelector(state => state.session.user?.id);
 
@@ -29,12 +30,18 @@ function UpdateReview({setShowModal , review}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (name && answer) {
+        setErrors("")
         const updateOneReview = {userId:review.userId, betId:review.betId, name, rating, answer, id:review.id }
         let updatedReview = await dispatch(reviewUpdate(updateOneReview))
         dispatch(getAllBets())
         setShowModal(false)
         // history.push('/')
         // history.push(`/bets/${id}`)
+        }
+        else {
+          setErrors("All fields must be filled")
+        }
       }
 
     return (
@@ -42,9 +49,13 @@ function UpdateReview({setShowModal , review}) {
         <div className="body__info">
         {/* <tr key={bet.id}></tr> */}
         <form action="">
+        <div className="error__bets">
+                        {/* {errors.map((error, idx) => <div key={idx}>{error}</div>)} */}
+            <div>{errors}</div>
+          </div>
           <Grid container spacing={2}>
           <Grid item>
-            <input value={name} onChange={e => setName(e.target.value)} type = "text" className="input" placeholder="Name"/>
+            <input value={name} onChange={e => setName(e.target.value)} type = "text" className="input" placeholder="Title"/>
           </Grid>
           <Grid item>
             <input value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input" placeholder="Comment"/>

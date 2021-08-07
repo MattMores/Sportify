@@ -64,7 +64,7 @@ export default function Reviews( {review}) {
           </Grid>
           <Grid item xs>
             {/* <StarRating /> */}
-            <div className="review_name">Nickname: {review.name}</div>
+            <div className="review_name">Title: {review.name}</div>
             <br></br>
             <Typography>Comment: {review.answer}</Typography>
           </Grid>

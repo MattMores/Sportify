@@ -49,6 +49,7 @@ export default function AddReview( {betId}) {
   const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [errors, setErrors] = useState("");
 
 //   const handleChange = (event) => {
 //     setCurrency(event.target.value);
@@ -60,6 +61,8 @@ useEffect(() => {
 
 const handleSubmitReview = async (e) => {
     e.preventDefault();
+    if (name && answer) {
+    setErrors("")
     const newReview = {userId, betId, name, rating, answer}
     // console.log("newReview", newReview)
     let createdReview = await dispatch(reviewCreate(newReview))
@@ -69,6 +72,9 @@ const handleSubmitReview = async (e) => {
         history.push('/')
         history.push(`/bets/${id}`)
     }
+  } else {
+    setErrors("All fields must be filled")
+  }
   }
 
 //   history.push("/")
@@ -78,13 +84,17 @@ const handleSubmitReview = async (e) => {
     <div className="body__Review">
     <div className="body__info__AddReview">
     <form action="">
+    <div className="error__bets">
+                        {/* {errors.map((error, idx) => <div key={idx}>{error}</div>)} */}
+          <div>{errors}</div>
+    </div>
       <Grid container spacing={1}>
       <Grid item>
       <input value={name}
       onChange={e => setName(e.target.value)}
       type = "text"
       className="input__Review"
-      placeholder="Nickname"/>
+      placeholder="Title"/>
       </Grid>
       <Grid item>
         <textarea rows="5" cols="40" value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input__Comment" placeholder="Comment"/>
@@ -115,6 +125,7 @@ const handleSubmitReview = async (e) => {
       </Grid>
     </form>
     </div>
+    <br></br>
     </div>
   );
 }
