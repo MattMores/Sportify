@@ -119,7 +119,7 @@ const handleSubmitReview = async (e) => {
       </Grid>
       <Grid item>
       <NavLink to="/bets" exact={true} style={{ color: "inherit", textDecoration: 'inherit'}}>
-      <button className="auth-btn">Back To Bets</button>
+      <button className="auth-btn_back">Back To Bets</button>
       </NavLink>
       </Grid>
       </Grid>
