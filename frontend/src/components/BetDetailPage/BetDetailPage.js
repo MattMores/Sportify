@@ -16,7 +16,7 @@ function BetDetailPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const currentBet = useSelector(state => state.bets[id])
-    console.log("888888888", currentBet?.Reviews)
+    // console.log("888888888", currentBet?.Reviews)
 
 
     useEffect(() => {

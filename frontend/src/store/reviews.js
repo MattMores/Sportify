@@ -35,7 +35,7 @@ const updateReview = (review) => ({
 // }
 
 export const reviewCreate = (review) => async (dispatch) => {
-    console.log("RRRRRRRR", review)
+    // console.log("RRRRRRRR", review)
     // const { userId, title, content, notebookId } = note; //notebookId
     const res = await csrfFetch("/api/reviews", {
         method: "POST",
@@ -43,7 +43,7 @@ export const reviewCreate = (review) => async (dispatch) => {
     });
     if (res.ok) {
         const review = await res.json();
-        console.log("REVIEWIWIWIWIWIW", review)
+        // console.log("REVIEWIWIWIWIWIW", review)
         dispatch(addReview(review))
         return res;
     }
@@ -70,7 +70,7 @@ export const reviewUpdate = (review) => async (dispatch) => {
 });
 if (res.ok) {
     const updatedReview = await res.json();
-    console.log("uppppppppppdated Review", updatedReview)
+    // console.log("uppppppppppdated Review", updatedReview)
     dispatch(updateReview(updatedReview))
 }
 };
@@ -104,7 +104,7 @@ const reviewsReducer = (state = initialState, action) => {
             return newState;
         case DELETE_REVIEW:
             newState = {...state}
-            console.log("0000000000000", action)
+            // console.log("0000000000000", action)
             delete newState[action.reviewId]
             return newState
         default:

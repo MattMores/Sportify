@@ -23,6 +23,10 @@ function UpdateReview({setShowModal , review}) {
     useEffect(() => {
     }, [dispatch]);
 
+    const handleCancel = (e) => {
+        setShowModal(false)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const updateOneReview = {userId:review.userId, betId:review.betId, name, rating, answer, id:review.id }
@@ -61,7 +65,10 @@ function UpdateReview({setShowModal , review}) {
             </select>
             </Grid>
             <Grid item>
-              <button onClick={handleSubmit} type="submit" className="auth-btn">Update Comment</button>
+              <button onClick={handleSubmit} type="submit" className="auth-btn_">Update Comment</button>
+            </Grid>
+            <Grid item>
+            <button onClick={handleCancel} type="submit" className="auth-btn_">Cancel</button>
             </Grid>
           </Grid>
         </form>

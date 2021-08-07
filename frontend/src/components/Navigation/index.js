@@ -69,8 +69,8 @@ function Navigation({ isLoaded }){
     }
   }, [token, dispatch]);
 //run code based on a given condition
-console.log("-------", spotifyuser);
-console.log("******", token);
+// console.log("-------", spotifyuser);
+// console.log("******", token);
 
   let sessionLinks;
   if (sessionUser) {

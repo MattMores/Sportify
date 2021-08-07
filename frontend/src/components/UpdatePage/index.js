@@ -23,6 +23,10 @@ function UpdatePage({setShowModal , bet}) {
     // const allBets = useSelector(state => Object.values(state.bets));
     // const userId = useSelector(state => state.session.user?.id);
 
+    const handleCancel = (e) => {
+        setShowModal(false)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (betTeam && opposingTeam && betType && line && amount && reason) {
@@ -95,6 +99,9 @@ function UpdatePage({setShowModal , bet}) {
             </Grid>
             <Grid item>
               <button onClick={handleSubmit} type="submit" className="auth-btn_">Update Bet</button>
+            </Grid>
+            <Grid item>
+              <button onClick={handleCancel} type="submit" className="auth-btn_">Cancel</button>
             </Grid>
           </Grid>
         </form>

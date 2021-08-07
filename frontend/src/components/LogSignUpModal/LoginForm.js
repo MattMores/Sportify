@@ -25,9 +25,9 @@ function LoginForm() {
   const handleDemo = (e) => {
     e.preventDefault();
     setErrors([]);
-    const email = 'demouser@gmail.com';
-    const pw = 'password';
-    return dispatch(sessionActions.login({ email, pw }))
+    const credential = 'demouser@gmail.com';
+    const password = 'password';
+    return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
@@ -75,7 +75,7 @@ function LoginForm() {
       </form>
       <div>
         <form onSubmit={handleDemo}>
-        <button type="submit" id="demo">Demo Login</button>
+        <button className="auth-btn-2" type="submit" id="demo">Demo Login</button>
         </form>
       </div>
       </div>

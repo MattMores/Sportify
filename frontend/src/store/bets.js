@@ -69,7 +69,7 @@ export const betUpdate = (bet) => async (dispatch) => {
 });
 if (res.ok) {
     const updatedBet = await res.json();
-    console.log("upppppppppp", updatedBet)
+    // console.log("upppppppppp", updatedBet)
     dispatch(updateBet(updatedBet))
 }
 };
@@ -82,7 +82,7 @@ const betsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_BETS:
-            console.log("999999999999999", action.bets)
+            // console.log("999999999999999", action.bets)
             const allBets = {};
             action.bets.forEach((bet) => {
                 allBets[bet.id] = bet;
@@ -102,7 +102,7 @@ const betsReducer = (state = initialState, action) => {
             newState = {...state, [bet.id] : bet}
             return newState;
         case DELETE_BET:
-            console.log("ppppppp", action)
+            // console.log("ppppppp", action)
             newState = {...state}
             delete newState[action.betId]
             return newState;

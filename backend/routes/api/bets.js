@@ -8,7 +8,7 @@ const { Bet, Review, User } = require('../../db/models');
 // get all bets
 router.get('/', asyncHandler(async (req, res) => {
     const bets = await Bet.findAll( {include: [Review, User]});
-    console.log("wwwwwwwwwwww", bets);
+    // console.log("wwwwwwwwwwww", bets);
     res.json(bets)
     // bets.length
     //bets.rows
@@ -34,7 +34,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.put('/', asyncHandler(async (req, res) => {
     const { id, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
-    console.log("updatttttteeeeeddddstore", req.body)
+    // console.log("updatttttteeeeeddddstore", req.body)
     const bet = await Bet.findByPk(id);
     await bet.update({betTeam, opposingTeam, betType, line, amount, reason })
     // res.json(bet)
@@ -43,7 +43,7 @@ router.put('/', asyncHandler(async (req, res) => {
 
 router.delete('/', restoreUser, asyncHandler(async (req, res) => {
     const { id } = req.body;
-    console.log("----------------------", id)
+    // console.log("----------------------", id)
     const bet = await Bet.findByPk(id);
     await bet.destroy();
     res.json(bet);

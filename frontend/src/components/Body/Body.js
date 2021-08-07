@@ -192,7 +192,7 @@ function Body( { spotify }) {
                      <SearchIcon />
                       <input
                           id="searchBets"
-                          placeholder="Search For Teams To Bet On..."
+                          placeholder="Search For Teams (Team #1) That Others Have Bet On..."
                           type="search"
                           value={search}
                           onChange={(e) => setSearch(e.target.value)}

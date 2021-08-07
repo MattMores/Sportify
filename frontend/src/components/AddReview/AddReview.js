@@ -57,10 +57,11 @@ export default function AddReview( {betId}) {
 useEffect(() => {
 }, [dispatch]);
 
+
 const handleSubmitReview = async (e) => {
     e.preventDefault();
     const newReview = {userId, betId, name, rating, answer}
-    console.log("newReview", newReview)
+    // console.log("newReview", newReview)
     let createdReview = await dispatch(reviewCreate(newReview))
     // dispatch(getAllBets())
     if (createdReview) {
@@ -83,7 +84,7 @@ const handleSubmitReview = async (e) => {
       onChange={e => setName(e.target.value)}
       type = "text"
       className="input__Review"
-      placeholder="Your Name"/>
+      placeholder="Nickname"/>
       </Grid>
       <Grid item>
         <textarea rows="5" cols="40" value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input__Comment" placeholder="Comment"/>
@@ -108,7 +109,7 @@ const handleSubmitReview = async (e) => {
       </Grid>
       <Grid item>
       <NavLink to="/bets" exact={true} style={{ color: "inherit", textDecoration: 'inherit'}}>
-      <button className="auth-btn">Home Page</button>
+      <button className="auth-btn">Back To Bets</button>
       </NavLink>
       </Grid>
       </Grid>

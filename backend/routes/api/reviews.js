@@ -19,7 +19,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.post('/', asyncHandler(async (req, res) => {
     // let { userId, betTeam, opposingTeam, betType, line, amount, reason } = req.body;
     const reviewInfo = req.body;
-    console.log("----------------------------", reviewInfo)
+    // console.log("----------------------------", reviewInfo)
     const review = await Review.create(reviewInfo)
     // console.log("6666666", res.json(review))
       // console.log("--------------------", userId, title, content); //notebookId
@@ -40,7 +40,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.put('/', asyncHandler(async (req, res) => {
     const { id, betId, name, rating, answer } = req.body;
-    console.log("revvviewwwwwwwstoreupdate", req.body)
+    // console.log("revvviewwwwwwwstoreupdate", req.body)
     const review = await Review.findByPk(id);
     await review.update( {name, rating, answer })
     res.json(review)
@@ -48,9 +48,9 @@ router.put('/', asyncHandler(async (req, res) => {
 
 router.delete('/', restoreUser, asyncHandler(async (req, res) => {
     const { id } = req.body;
-    console.log("----------------------", id)
+    // console.log("----------------------", id)
     const review = await Review.findByPk(id);
-    console.log("rrrrrrrrrrrrrrrrr", review)
+    // console.log("rrrrrrrrrrrrrrrrr", review)
     await review.destroy();
     res.json(review);
     })
