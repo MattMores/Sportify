@@ -58,7 +58,7 @@ function UpdateReview({setShowModal , review}) {
             <input value={name} onChange={e => setName(e.target.value)} type = "text" className="input" placeholder="Title"/>
           </Grid>
           <Grid item>
-            <input value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input" placeholder="Comment"/>
+            <textarea rows="5" cols="30" value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input__Comment__Update" placeholder="Comment"/>
           </Grid>
             <Grid item>
             <select value={rating} onChange={e => setRating (e.target.value)} className="input">
