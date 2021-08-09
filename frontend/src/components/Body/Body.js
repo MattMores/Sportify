@@ -122,7 +122,7 @@ function Body( { spotify }) {
                     <h2>Discover Bets Weekly</h2>
                 {/* <p>description...</p> */}
                     {/* <p>{discover_weekly?.description}</p> */}
-                    <p>Your weekly mixtape of fresh bets. Enjoy new bets and deep cuts selected by your friends. Create, post and update your own bets. And be sure to comment and rate the bets of your friends.</p>
+                    <p>Your weekly mixtape of fresh bets. Enjoy new bets and deep cuts selected by your friends. Create, post and update your own bets. And be sure to comment on and rate the bets of your friends.</p>
                 </div>
                 </div>
                 <div className="body__songs">
