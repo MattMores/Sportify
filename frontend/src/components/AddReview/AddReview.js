@@ -94,7 +94,7 @@ const handleSubmitReview = async (e) => {
       onChange={e => setName(e.target.value)}
       type = "text"
       className="input__Review"
-      placeholder="Title"/>
+      placeholder="Name/Nickname"/>
       </Grid>
       <Grid item>
         <textarea rows="5" cols="40" value={answer} onChange={e => setAnswer(e.target.value)} type = "text" className="input__Comment" placeholder="Comment (Include your Name/Nickname)"/>
