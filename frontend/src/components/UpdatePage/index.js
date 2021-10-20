@@ -92,9 +92,9 @@ function UpdatePage({setShowModal , bet}) {
               <option disabled>Bet Type</option>
               <option value="Straight">Straight</option>
               <option value="Spread">Spread</option>
-              <option value="Over">Over</option>
+              {/* <option value="Over">Over</option>
               <option value="Under">Under</option>
-              <option value="Parlay">Parlay</option>
+              <option value="Parlay">Parlay</option> */}
             </select>
             </Grid>
             <Grid item>
