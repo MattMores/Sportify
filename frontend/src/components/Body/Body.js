@@ -25,6 +25,7 @@ function Body( { spotify }) {
     const [line, setLine] = useState("");
     const [amount, setAmount] = useState("");
     const [reason, setReason] = useState("");
+    const [plusMinus, setPlusMinus] = useState("");
     const dispatch = useDispatch();
     let allBets = useSelector(state => Object.values(state.bets));
     const userId = useSelector(state => state.session.user?.id);
@@ -177,9 +178,9 @@ function Body( { spotify }) {
                           <option disabled>Bet Type</option>
                           <option value="Straight">Straight</option>
                           <option value="Spread">Spread</option>
-                          <option value="Over">Over</option>
-                          <option value="Under">Under</option>
-                          <option value="Parlay">Parlay</option>
+                          {/* <option value="Over">Over</option>
+                          <option value="Under">Under</option> */}
+                          {/* <option value="Parlay">Parlay</option> */}
                         </select>
                         </Grid>
                         <Grid item>

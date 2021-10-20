@@ -36,11 +36,11 @@ function Sidebar() {
         {/* {playlists?.items?.map(playlist => (
         <SidebarOption key={playlist.id} title={playlist.name} />
         ))} */}
-        <a target="_blank" rel="noopener noreferrer" href="https://www.actionnetwork.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
-        <SidebarOption title={"Action Network"} />
-        </a>
         <a target="_blank" rel="noopener noreferrer" href="https://www.pff.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
         <SidebarOption title={"PFF"} />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.actionnetwork.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
+        <SidebarOption title={"Action Network"} />
         </a>
         <a target="_blank" rel="noopener noreferrer" href="https://www.covers.com/" style={{ color: "inherit", textDecoration: 'inherit'}}>
         <SidebarOption title={"Covers"} />

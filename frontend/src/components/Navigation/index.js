@@ -72,6 +72,32 @@ function Navigation({ isLoaded }){
 // console.log("-------", spotifyuser);
 // console.log("******", token);
 
+  // let sessionLinks;
+  // if (sessionUser) {
+  //   sessionLinks = (
+  //     <>
+  //     { token ? (
+  //       <>
+  //       <Route>
+  //         <Redirect to="/bets" spotify={spotify} />
+  //       </Route>
+  //       </>
+  //     ) : (
+  //     <>
+  //     <Splash exact={true} />
+  //     </>
+  //     )
+  //     }
+  //     </>
+  //   );
+  // } else {
+  //   sessionLinks = (
+  //     <>
+  //     <SplashPage path="/" exact={true} />
+  //     </>
+  //   );
+  // }
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
@@ -83,9 +109,11 @@ function Navigation({ isLoaded }){
         </Route>
         </>
       ) : (
-      <>
-      <Splash exact={true} />
-      </>
+        <>
+        <Route>
+          <Redirect to="/bets" spotify={spotify} />
+        </Route>
+        </>
       )
       }
       </>
