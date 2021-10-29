@@ -28,10 +28,9 @@ On the site, user can:
 
 User can Login or Sign Up/Register using the same Login Form Modal that is powered by React. 
 
-
-![Login](https://github.com/MattMores/Sportify/blob/main/SportifyLogin.gif)
-![LoginAgain](https://github.com/MattMores/Sportify/blob/main/SportifyLoginn.gif)
-![LoginAgain](https://github.com/MattMores/Sportify/blob/main/fullscreenLogin.gif)
+![LoginGif](https://github.com/MattMores/Sportify/blob/main/fullscreenLogin.gif)
+![Login](https://github.com/MattMores/Sportify/blob/main/LoginTwo.png)
+![SignUp](https://github.com/MattMores/Sportify/blob/main/SignUp.png)
 
 ## Database and Technologies Used
 
