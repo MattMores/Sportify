@@ -32,7 +32,13 @@ User can Login or Sign Up/Register using the same Login Form Modal that is power
 <img width="600" alt="Screen Shot 2021-10-29 at 5 26 57 PM" src="https://user-images.githubusercontent.com/79879179/139507896-6d38cebb-df83-46cc-80a6-5a763bd3050f.png">
 <img width="600" alt="Screen Shot 2021-10-29 at 5 27 29 PM" src="https://user-images.githubusercontent.com/79879179/139507940-9df4ba95-5f83-42ae-9ceb-63ff95c13024.png">
 
-### Placing A Bet
+### Bets Page
+
+After logging in, the user lands on the home page where they can view all the latest bets that their friends are interested in. This is also the place that users can create a bet, search for bets, and use external resources (Betting Resources) to do research for upcoming games. 
+
+<img width="1193" alt="BetsPage" src="https://user-images.githubusercontent.com/79879179/139511245-927de499-32e3-42f8-8622-02602b14c0cf.png">
+
+### Creating A Bet
 
 Users can post a bet they are thinking of making, which other users can then review and rate. This bet is quickly displayed on the page without refreshing the page. 
 
@@ -44,7 +50,7 @@ By enabling frontend and backend authentication measures, along with React Route
 <img width="513" alt="UpdateBet" src="https://user-images.githubusercontent.com/79879179/139508867-cc65f0c4-87b6-4ef4-84d8-e81fb2ae766d.png">
 Once clicking "Update", a modal form pops up that allows users to quickly and cleanly update their bet. 
 <img width="1400" alt="UpdateBetModal" src="https://user-images.githubusercontent.com/79879179/139508875-008a2040-9771-46da-8032-576bbad6080f.png">
-After making their update, they are returned to the home betting page. 
+After making their update, the modal closes and their updated bet is displayed on the home page.  
 <img width="478" alt="UpdatedBet" src="https://user-images.githubusercontent.com/79879179/139508880-06ff4621-326a-4ca4-b7ec-92a2f7a5757a.png">
 
 ### Commenting and Rating 
@@ -54,6 +60,12 @@ Along with their own bets, users can view bets that others are thinking of placi
 <img width="499" alt="Comment" src="https://user-images.githubusercontent.com/79879179/139509764-50b67841-ea5a-488c-99d5-7790bcee1c9c.png">
 
 <img width="1335" alt="CommentPageTwo" src="https://user-images.githubusercontent.com/79879179/139509859-3bc3e24b-4525-451c-b114-29be6ff3048e.png">
+
+### Search
+
+Logged in users can also search for a specific bets/games by name. A customsearch algorithm then displays only bets that are relevant to that user’s search query.
+
+<img width="1098" alt="Search" src="https://user-images.githubusercontent.com/79879179/139511548-58805ac2-e577-43f1-8ace-7dc667e93c40.png">
 
 ## Database and Technologies Used
 
