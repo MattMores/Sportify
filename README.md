@@ -3,11 +3,16 @@
 #### Table of Contents
 
 * [Summary](#summary)
-* [Database & Technologies Used]
+* [Database & Technologies Used](#database-&-technologies-used)
 * [Primary Features]
 * [Live Site]
 
-#Database & Technologies Used
+## Summary
+Sportify is a full-stack web application serving you a weekly mixtape of fresh bets. Users can create, post and update bets they want to make - allowing their friends to review, rate and comment with their own thoughts. The goal is to build a community of bettors who can share their insights and thoughts on individual bets so that, collectively, everyone can make smarter betting decisions.
+
+## Database & Technologies Used
+
+### Database Schema
 
 ![Schema](https://github.com/MattMores/Sportify/blob/main/dbSchema.png)
 
@@ -21,6 +26,4 @@ The Wiki contains additional information and planning documents:
 
 [Live Site](https://sportify-capstone.herokuapp.com/) - NOTE: Site is currently inactive as hosting Dyno hours have expired.
 
-## Summary
-Sportify is a full-stack web application serving you a weekly mixtape of fresh bets. Users can create, post and update bets they want to make - allowing their friends to review, rate and comment with their own thoughts. The goal is to build a community of bettors who can share their insights and thoughts on individual bets so that, collectively, everyone can make smarter betting decisions.
 
