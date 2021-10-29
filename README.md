@@ -2,7 +2,7 @@
 
 #### Table of Contents
 
-* [Summary](#summary)
+* [Summary](##summary)
 * [Database & Technologies Used]
 * [Primary Features]
 * [Live Site]
@@ -22,5 +22,5 @@ The Wiki contains additional information and planning documents:
 
 [Live Site](https://sportify-capstone.herokuapp.com/) - NOTE: Site is currently inactive as hosting Dyno hours have expired.
 
-# Summary
+## Summary
 Sportify is a full-stack web application serving you a weekly mixtape of fresh bets. Users can create, post and update bets that they're thinking of making - allowing their friends to review, rate and comment with their own thoughts. The goal is to build a community of bettors who can share their insights and thoughts on individual bets so that, collectively, everyone can make smarter betting decisions.
