@@ -27,6 +27,8 @@ On the site, user can:
 ### User Login and Sign Up
 
 ![Login](https://github.com/MattMores/Sportify/blob/main/SportifyLogin.gif)
+![LoginAgain](https://github.com/MattMores/Sportify/blob/main/SportifyLoginn.gif)
+![LoginAgain](https://github.com/MattMores/Sportify/blob/main/fullscreenLogin.gif)
 
 ## Database and Technologies Used
 
