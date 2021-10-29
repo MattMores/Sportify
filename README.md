@@ -30,7 +30,7 @@ User can Login or Sign Up/Register using the same Login Form Modal that is power
 
 ![LoginGif](https://github.com/MattMores/Sportify/blob/main/fullscreenLogin.gif)
 ![Login](https://github.com/MattMores/Sportify/blob/main/LoginTwo.png)
-![SignUp](https://github.com/MattMores/Sportify/blob/main/SignUp.png)
+![SignUp](https://github.com/MattMores/Sportify/blob/main/SignUpTwo.png)
 
 ## Database and Technologies Used
 
