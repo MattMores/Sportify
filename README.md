@@ -12,22 +12,22 @@
 * [Wiki](#wiki)
 
 ## Summary
-Sportify is a full-stack web application serving users a weekly mixtape of fresh bets. Users can create, post and update bets they want to make - allowing friends to review, rate and comment with their own thoughts. The goal is to build a community of bettors who can share their insights on individual bets so that, collectively, everyone can make smarter betting decisions. The vision was to create a visual clone of Spotify, while having the UX/UI of Reddit/Yelp.
+Sportify is a full-stack web application serving you a weekly mixtape of fresh bets. Users can create, post and update bets they want to make - allowing friends to review, rate and comment with their own thoughts. The goal is to build a community of bettors who can share their insights on individual bets so that, collectively, everyone can make smarter betting decisions. The vision was to create a visual clone of Spotify, while having the UX/UI of Reddit/Yelp.
 
-On the site, user can:
+On the site, users can:
 
 * Sign Up and log in / log out with their data persisting between visits
 * Use the demo login to experience the site without creating an account
-* Navigate to the /bets page to create, post, update and delete bets - which friends can comment on and rate
-* Navigate to the /bets:id page to create, post, update and delete reviews of their friends' bets
-* Use the search feature to display only bets that are relevant to their keyword query
-* Authenticate Spotify so their user experience is tailored to settings they established via Spotify's API
+* Navigate to the /bets page to create, post, update and delete bets - which other users can comment on and rate
+* Navigate to the /bets:id page to create, post, update and delete reviews of other users' bets
+* Use the search feature to display only bets that are relevant to the keyword query
+* Authenticate Spotify's API if the user wants their Spotify profile image to appear next to their bets
 
 ## Primary Features
 
 ### User Login and Sign Up
 
-User can Login or Sign Up/Register using the same Login Form Modal powered by React
+Users can Login or Sign Up/Register using a Login Form Modal powered by React
 
 ![fullscreenLogin](https://user-images.githubusercontent.com/79879179/139563242-69e0b4e8-cfbd-4c7f-b387-921304c15984.gif)
 <img width="600" alt="Screen Shot 2021-10-29 at 5 26 57 PM" src="https://user-images.githubusercontent.com/79879179/139507896-6d38cebb-df83-46cc-80a6-5a763bd3050f.png">
@@ -48,19 +48,23 @@ https://user-images.githubusercontent.com/79879179/139508575-55d10b25-c75e-4c82-
 ### Updating A Bet
 By enabling frontend and backend authentication measures, along with React Router, users have the privacy and autonomy to only access and change/update their own bets. 
 
+https://user-images.githubusercontent.com/79879179/139564215-26ce7f10-aa66-43d6-bd7f-424ab56d7d0c.mov
+
 <img width="513" alt="UpdateBet" src="https://user-images.githubusercontent.com/79879179/139508867-cc65f0c4-87b6-4ef4-84d8-e81fb2ae766d.png">
 
 Once clicking "Update", a modal form pops up that allows users to quickly and cleanly update their bet.
 
 <img width="1400" alt="UpdateBetModal" src="https://user-images.githubusercontent.com/79879179/139508875-008a2040-9771-46da-8032-576bbad6080f.png">
 
-After making their update, the modal closes and their updated bet is displayed on the home page.  
+After making their update, the modal closes and the updated bet is displayed on the home page.  
 
 <img width="478" alt="UpdatedBet" src="https://user-images.githubusercontent.com/79879179/139508880-06ff4621-326a-4ca4-b7ec-92a2f7a5757a.png">
 
 ### Commenting and Rating 
 
 Along with their own bets, users can view bets that others are thinking of placing. If there is a bet they have feedback on, they can click on the "Comment" button to be redirected to the individual bet page (/bets:id) - where they can view the comments/ratings that other users have published, and post their own comments/ratings. 
+
+https://user-images.githubusercontent.com/79879179/139564371-6d0f438f-f362-47a6-90e7-9f4b6cd029a6.mov
 
 <img width="499" alt="Comment" src="https://user-images.githubusercontent.com/79879179/139509764-50b67841-ea5a-488c-99d5-7790bcee1c9c.png">
 
@@ -69,6 +73,8 @@ Along with their own bets, users can view bets that others are thinking of placi
 ### Search
 
 Logged in users can also search for specific bets/games by name. A custom search algorithm then displays only bets that are relevant to that user’s search query.
+
+https://user-images.githubusercontent.com/79879179/139564473-dbe32bab-59bf-4833-ab1a-a262bff8a824.mov
 
 <img width="1098" alt="Search" src="https://user-images.githubusercontent.com/79879179/139511548-58805ac2-e577-43f1-8ace-7dc667e93c40.png">
 
