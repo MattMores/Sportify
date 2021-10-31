@@ -70,6 +70,18 @@ https://user-images.githubusercontent.com/79879179/139564371-6d0f438f-f362-47a6-
 
 <img width="1335" alt="CommentPageTwo" src="https://user-images.githubusercontent.com/79879179/139509859-3bc3e24b-4525-451c-b114-29be6ff3048e.png">
 
+### Updating A Comment/Rating
+
+Similar to updating bets, users have the ability to update (only) comments/ratings that they have made. 
+
+https://user-images.githubusercontent.com/79879179/139565425-6491295e-6b60-469c-8a2f-73d4adc796f6.mov
+
+<img width="430" alt="UpdateReviewScreenshot" src="https://user-images.githubusercontent.com/79879179/139565491-5358229c-a1d1-418f-9fab-bad4a0dcde40.png">
+
+<img width="1396" alt="UpdateCommentModal" src="https://user-images.githubusercontent.com/79879179/139565494-f68d0dd0-9a5f-4f8f-aa1b-ba7f8af4f393.png">
+
+<img width="452" alt="PostUpdateRating" src="https://user-images.githubusercontent.com/79879179/139565501-9da0137c-53d4-4ba7-8a05-542dc6bb22f8.png">
+
 ### Search
 
 Logged in users can also search for specific bets/games by name. A custom search algorithm then displays only bets that are relevant to that user’s search query.
