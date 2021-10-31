@@ -1,6 +1,7 @@
 # Welcome to Sportify!
 
-![Logo](https://github.com/MattMores/Sportify/blob/main/sportifyLogo.png)
+![sportifyLogo](https://user-images.githubusercontent.com/79879179/139563220-9bcb5f5f-e8b3-4a83-9f1f-c50fb4f970f3.png)
+
 
 #### Table of Contents
 
@@ -28,7 +29,7 @@ On the site, user can:
 
 User can Login or Sign Up/Register using the same Login Form Modal powered by React
 
-![LoginGif](https://github.com/MattMores/Sportify/blob/main/fullscreenLogin.gif)
+![fullscreenLogin](https://user-images.githubusercontent.com/79879179/139563242-69e0b4e8-cfbd-4c7f-b387-921304c15984.gif)
 <img width="600" alt="Screen Shot 2021-10-29 at 5 26 57 PM" src="https://user-images.githubusercontent.com/79879179/139507896-6d38cebb-df83-46cc-80a6-5a763bd3050f.png">
 <img width="600" alt="Screen Shot 2021-10-29 at 5 27 29 PM" src="https://user-images.githubusercontent.com/79879179/139507940-9df4ba95-5f83-42ae-9ceb-63ff95c13024.png">
 
@@ -85,7 +86,7 @@ Express Router, Postbird, Postman, Express Security Middlewares, BCRYPT Password
 
 ### Database Schema
 
-![Schema](https://github.com/MattMores/Sportify/blob/main/dbSchema.png)
+<img width="1059" alt="dbSchema" src="https://user-images.githubusercontent.com/79879179/139563282-52c42d2b-b07e-4526-8469-cb831b6a1784.png">
 
 ## Live Site
 
@@ -94,7 +95,6 @@ Express Router, Postbird, Postman, Express Security Middlewares, BCRYPT Password
 ## Wiki
 The Wiki contains additional information and planning documents:
 
-* [Database Schema](https://github.com/MattMores/Sportify/wiki/database-schema)
 * [MVP Feature List](https://github.com/MattMores/Sportify/wiki/mvp-feature-list)
 * [User Stories](https://github.com/MattMores/Sportify/wiki/user-stories)
 * [User Facing Routes](https://github.com/MattMores/Sportify/wiki/user-facing-routes)
