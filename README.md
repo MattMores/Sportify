@@ -50,9 +50,9 @@ By enabling frontend and backend authentication measures, along with React Route
 
 https://user-images.githubusercontent.com/79879179/139564215-26ce7f10-aa66-43d6-bd7f-424ab56d7d0c.mov
 
-<img width="513" alt="UpdateBet" src="https://user-images.githubusercontent.com/79879179/139508867-cc65f0c4-87b6-4ef4-84d8-e81fb2ae766d.png">
-
 Once clicking "Update", a modal form pops up that allows users to quickly and cleanly update their bet.
+
+<img width="513" alt="UpdateBet" src="https://user-images.githubusercontent.com/79879179/139508867-cc65f0c4-87b6-4ef4-84d8-e81fb2ae766d.png">
 
 <img width="1400" alt="UpdateBetModal" src="https://user-images.githubusercontent.com/79879179/139508875-008a2040-9771-46da-8032-576bbad6080f.png">
 
