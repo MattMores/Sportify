@@ -27,7 +27,7 @@ On the site, users can:
 
 ### User Login and Sign Up
 
-Users can Login or Sign Up/Register using a Login Form Modal powered by React
+Users can Login or Sign Up/Register using a Login Form Modal powered by React.
 
 ![fullscreenLogin](https://user-images.githubusercontent.com/79879179/139563242-69e0b4e8-cfbd-4c7f-b387-921304c15984.gif)
 <img width="600" alt="Screen Shot 2021-10-29 at 5 26 57 PM" src="https://user-images.githubusercontent.com/79879179/139507896-6d38cebb-df83-46cc-80a6-5a763bd3050f.png">
